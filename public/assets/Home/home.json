@@ -1,0 +1,22 @@
+[
+	{
+        "id": 1,
+        "title": "Title one",
+		"description": "This is home 1 from API"
+	},
+	{
+        "id": 2,
+        "title": "Title 2",
+		"description": "This is home 2 from API"
+	},
+	{
+        "id": 3,
+        "title": "Title 3",
+		"description": "This is home 3 from API"
+	},
+	{
+        "id": 4,
+        "title": "Title 4",
+		"description": "This is home 4 from API"
+	}
+]
