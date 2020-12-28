@@ -1,12 +1,13 @@
 <template>
   <div id="app">
     <Header/>
-    <Home msg = 'Home comptoent' />
+    <Home msg = 'Home component' />
     <Footer/>
   </div>
 </template>
 
 <script>
+import './App.css';
 import Header from "./components/Header/Header";
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer'
@@ -20,5 +21,5 @@ export default {
 }
 </script>
 
-<style scoped src='./App.css'/>
+
 
