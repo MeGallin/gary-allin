@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.colour-one {
+  background-color: var(--main-bg-colour);
+  flex-grow: 1;
+}
+.colour-two {
+  background-color: var(--secondary-bg-colour);
+  flex-grow: 1;
+}
+.colour-three {
+  background-color: var(--light-orange);
+  flex-grow: 1;
+}
+.colour-four {
+  background-color: var(--burnt-orange);
+  flex-grow: 1;
+}
