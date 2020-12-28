@@ -20,7 +20,7 @@ export default {
     data() {
         return {
             name: 'Home',
-            text: 'This is my sample text'
+            text: 'This is my HOME text'
         }
     },    
     props: {

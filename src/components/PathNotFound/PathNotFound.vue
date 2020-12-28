@@ -1,5 +1,5 @@
 <template>
-  <section id="about">
+  <section id="pathNotFound">
 
 <div class="wrapper">
   <div class="colour-one border-temp"><h1>{{msg}}</h1>
@@ -19,8 +19,8 @@
 export default {
     data() {
         return {
-            name: 'About',
-            text: 'This is my About text'
+            name: 'PathNotFound',
+            text: 'This is my PathNotFound text'
         }
     },    
     props: {
@@ -30,4 +30,4 @@ export default {
 }
 </script>
 
-<style scoped src='./About.css'></style>
+<style scoped src='./PathNotFound.css'></style>

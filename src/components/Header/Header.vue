@@ -1,6 +1,8 @@
 <template>
   <section id="header">
-<h1>{{name}}</h1>
+    <h1>{{name}}</h1>
+    <router-link to='/'>Home</router-link>
+    <router-link to='/about'>About</router-link>
   </section>
 </template>
 
