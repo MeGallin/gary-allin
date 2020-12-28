@@ -1,16 +1,21 @@
 <template>
-  <section id="footer">
+<footer id="footer">
 <h1>{{name}}</h1>
-  </section>
+<Date/>
+</footer>
 </template>
 
 <script>
+import Date from '../common/Date/Date'
 export default {
     data() {
         return {
             name: 'Footer'
         }
-    }
+    },
+        components: {
+          Date
+        }
 
 }
 </script>
