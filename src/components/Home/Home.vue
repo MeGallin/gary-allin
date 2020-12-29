@@ -1,5 +1,6 @@
 <template>
 <section id="home">
+  <LogIn/>
   
   <h1>{{name}}</h1>
   
@@ -24,7 +25,7 @@
 </template>
 
 <script>
-
+import LogIn from '../Authentication/LogIn/LogIn';
 export default {
  async created() {
    const url = '../assets/Home/home.json';
@@ -51,6 +52,9 @@ export default {
             loading: '',
             loaded: ''
         }
+    },
+    components: {
+      LogIn
     }
 
 }
