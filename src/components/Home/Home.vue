@@ -5,7 +5,7 @@
   <h1>{{name}}</h1>
   
   <div class="wrapper" > 
-     
+    
       <div class="colour-one border-temp" v-for="(des) in descriptions" :key="des.id">
         <h3>{{des.title}}</h3>
         <p>{{des.description}}</p>
@@ -26,6 +26,7 @@
 
 <script>
 import LogIn from '../Authentication/LogIn/LogIn';
+
 export default {
  async created() {
    const url = '../assets/Home/home.json';

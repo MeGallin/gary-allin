@@ -2,17 +2,22 @@
 <div class="wrapper">
   <div class="colour-one border-temp">
       <p>{{text}}</p>
+       <LogIn/>
   </div>
 </div>
 </template>
 
 <script>
+import LogIn from '../../Authentication/LogIn/LogIn';
 export default {
     data() {
         return {
             name: 'NotAthorised',
-            text: 'You are not authorised to see this page. Please register to enter.'
+            text: 'Please login or register to accees my CV.'
         }
+    },
+    components: {
+      LogIn
     }
 
 }

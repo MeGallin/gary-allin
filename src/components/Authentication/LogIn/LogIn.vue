@@ -1,17 +1,15 @@
 <template>
-    <div v-if="isLoggedIn === undefined">
-        <button type="button" @click='loginClick()'>login</button>
+    <div v-if="isLoggedIn === false || isLoggedIn === undefined">
+        <button type="button" @click='loginClick()'>login-register</button>
     </div>
     <div v-else> 
         <button type="button" @click="logOut()">logout</button> 
     </div>
 </template>
-
 <script>
 import {login, isLoggedIn, logout} from '../utils/auth';
- console.log(isLoggedIn());
-export default {
-   
+
+export default {   
     data() {
         return {
             name: 'LogIn',
@@ -24,11 +22,10 @@ export default {
             },
             logOut() {
                 console.log('logged out');
-                this.isLoggedIn = undefined;
+                this.isLoggedIn = false;
                 logout();
             }
         }
-
 }
 </script>
 
