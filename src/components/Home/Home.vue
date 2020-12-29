@@ -3,9 +3,10 @@
   <LogIn/>
   
   <h1>{{name}}</h1>
-  
+ 
   <div class="wrapper" > 
-    
+     <!-- // Use this to get data with getters -->
+     <!-- // {{getterDescriptions}} -->
       <div class="colour-one border-temp" v-for="(des) in descriptions" :key="des.id">
         <h3>{{des.title}}</h3>
         <p>{{des.description}}</p>
@@ -26,36 +27,30 @@
 
 <script>
 import LogIn from '../Authentication/LogIn/LogIn';
+import $Store from '../../store/index';
 
 export default {
- async created() {
-   const url = '../assets/Home/home.json';
-    try {
-          const headers = { "Content-Type": "application/json" };   
-          const data = await this.$http.get( url, { headers });
-          this.descriptions = data.data;
-          const status = data.status;
-          const statusText = data.statusText;
-          if(status !== 200) {
-            this.loading = 'loading...';
-          } else {
-            this.loaded = statusText;
-          }
-    } catch (error) {
-      console.error(error);
-    }
-  },
     data() {
         return {
             name: 'Home',
-            text: 'This is my HOME text',
-            descriptions: [],
+            text: 'This is my HOME text',  
             loading: '',
             loaded: ''
         }
     },
     components: {
       LogIn
+    },
+    computed: {  
+      getterDescriptions() { 
+        return $Store.getters.allDescriptions
+      },   
+      descriptions() {     
+        return $Store.state.Http.descriptions
+      }
+    },
+    created() {     
+      $Store.dispatch('getDescriptions')
     }
 
 }
