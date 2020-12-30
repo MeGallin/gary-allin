@@ -2,21 +2,21 @@
 	{
         "id": 1,
         "title": "Title one",
-		"description": "--main-bg-colour-white, --secondary-bg-colour-orange,--light-orange-light-orange, --burnt-orange-burnt orange"
+		"description": "--main-bg-colour-white"
 	},
 	{
         "id": 2,
         "title": "Title 2",
-		"description": "This is home 2 from API"
+		"description": "--secondary-bg-colour-orange"
 	},
 	{
         "id": 3,
         "title": "Title 3",
-		"description": "This is home 3 from API"
+		"description": "--light-orange-light-orange"
 	},
 	{
         "id": 4,
         "title": "Title 4",
-		"description": "This is home 4 from API"
+		"description": "--burnt-orange-burnt orange"
 	}
 ]

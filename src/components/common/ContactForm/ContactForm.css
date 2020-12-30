@@ -53,13 +53,13 @@ form {
   margin-bottom: 30px;
 }
 .form-style input[type='text'].entered {
-  border-left: #40e0d0 4px solid;
+  border-left:greenyellow 4px solid;
 }
 .form-style input[type='email'].entered {
-  border-left: #40e0d0 4px solid;
+  border-left:greenyellow 4px solid;
 }
 .form-style textarea.entered {
-  border-left: #40e0d0 4px solid;
+  border-left:greenyellow 4px solid;
 }
 .form-style button {
   border: 1px solid rgba(255, 255, 255, 0.1);
