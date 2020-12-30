@@ -1,11 +1,13 @@
 import axios from 'axios';
 const state = {
-    descriptions: []
+    descriptions: [],
+    aboutDescriptions: []
 };
 
 // THis is an alternative of getting the data
 const getters = {
-    allDescriptions: (state) => state.descriptions
+    allDescriptions: (state) => state.descriptions,
+    allAboutDescriptions: (state) => state.allAboutDescriptions
 };
 // THis is an alternative of getting the data
 
@@ -19,12 +21,25 @@ const actions = {
         .catch((err) => {
             console.log(err);
         })
+    },
+    getAboutDescriptions({commit}) {
+        const url = '../assets/About/About.json';
+        axios.get(url)
+        .then(res => {
+            commit('SET_RES_ABOUT', res.data)
+        })
+        .catch((error) => {
+            console.log(error);
+        })
     }
 };
 
 const mutations = {
     SET_RES(state, descriptions) {
         state.descriptions = descriptions
+    },
+    SET_RES_ABOUT(state, aboutDescriptions) {
+        state.aboutDescriptions = aboutDescriptions
     }
 }
 
