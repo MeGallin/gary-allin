@@ -79,7 +79,7 @@ export default {
     },
     isSubmitted: {
       get: function() {
-       return $Store.state.common.isSubmitted;
+      return $Store.state.common.isSubmitted;
       },
       set: function(val) {
         console.log(val);

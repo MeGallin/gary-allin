@@ -7,9 +7,9 @@ if(isset($postdata) && !empty($postdata)) {
      $email = $request['email'];
      $message = $request['message'];
      if(!empty($message)){
-        $message = $message;
+        $message = "Dear ".$name. ", thank you for contacting me.\r\nThis is a confirmation of your message:\r\n ".$message. "\r\n Feel free to contact me anytime.\r\n Kind regards Gary";
      }else{
-        $message = "This message is only visible to the FisicalFitness.co.uk It is a contact request message from your website from " .$name. " and email address: " .$email;
+        $message = "This message is only visible to the garyallin.uk It is a contact request message from your website from " .$name. " and email address: " .$email;
      }    
      $to = "me@garyallin.uk";
      $subject = "Contact Request";     
