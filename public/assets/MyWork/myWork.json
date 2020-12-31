@@ -1,0 +1,22 @@
+[
+	{
+        "id": 1,
+        "title": "Project one",
+		"description": "In this project I create a ...."
+	},
+	{
+        "id": 2,
+        "title": "Project two",
+		"description": "This will have to be a blog type component"
+	},
+	{
+        "id": 3,
+        "title": "Title 3",
+		"description": "--light-orange-light-orange"
+	},
+	{
+        "id": 4,
+        "title": "Title 4",
+		"description": "--burnt-orange-burnt orange"
+	}
+]

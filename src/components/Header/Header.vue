@@ -23,6 +23,11 @@
             </router-link>
           </li>
           <li>
+            <router-link to='/my-work'>
+              <a @click="setOpenMediaQuery(open)">My Work</a>
+            </router-link>
+          </li>
+          <li>
             <router-link to='/contact'>
               <a @click="setOpenMediaQuery(open)">Contact Me</a>
             </router-link>

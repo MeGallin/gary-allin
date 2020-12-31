@@ -1,13 +1,15 @@
 import axios from 'axios';
 const state = {
     descriptions: [],
-    aboutDescriptions: []
+    aboutDescriptions: [],
+    myWorkDescriptions: []
 };
 
 // THis is an alternative of getting the data
 const getters = {
     allDescriptions: (state) => state.descriptions,
-    allAboutDescriptions: (state) => state.allAboutDescriptions
+    allAboutDescriptions: (state) => state.allAboutDescriptions,
+    myWorkDescriptions: (state) => state.myWorkDescriptions
 };
 // THis is an alternative of getting the data
 
@@ -31,6 +33,19 @@ const actions = {
         .catch((error) => {
             console.log(error);
         })
+    },
+    getMyWorkDescriptions({commit}) {
+        const url = '../assets/MyWork/myWork.csv';
+        axios.get(url)
+        .then(res => {
+            const readme = res.data;
+            const foo = readme.toString()
+            console.log(readme.toString());
+            commit('SET_RES_MY_WORK', foo)
+        })
+        .catch((error) => {
+            console.log(error);
+        })
     }
 };
 
@@ -40,6 +55,9 @@ const mutations = {
     },
     SET_RES_ABOUT(state, aboutDescriptions) {
         state.aboutDescriptions = aboutDescriptions
+    },
+    SET_RES_MY_WORK(state, myWorkDescriptions) {
+        state.myWorkDescriptions = myWorkDescriptions
     }
 }
 
