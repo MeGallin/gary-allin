@@ -2,7 +2,7 @@
 	{
         "id": 1,
         "title": "Title one",
-		"description": "--main-bg-colour-white"
+		"description": "--main-bg-colour-black, --main-font-colour-whitesmoke"
 	},
 	{
         "id": 2,
