@@ -39,9 +39,7 @@ const actions = {
         axios.get(url)
         .then(res => {
             const readme = res.data;
-            const foo = readme.toString()
-            console.log(readme.toString());
-            commit('SET_RES_MY_WORK', foo)
+            commit('SET_RES_MY_WORK', readme)
         })
         .catch((error) => {
             console.log(error);

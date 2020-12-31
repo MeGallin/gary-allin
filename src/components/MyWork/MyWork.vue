@@ -2,7 +2,8 @@
   <section id="myWork">
       <h1>{{name}}</h1>
 <div class="wrapper">
-<p>{{myWorkDescriptions}}</p> 
+    <div v-html="myWorkDescriptions"/>
+<!-- {{myWorkDescriptions}}  -->
 
 </div>
 
