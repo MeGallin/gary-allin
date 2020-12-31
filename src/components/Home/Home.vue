@@ -29,13 +29,15 @@
 import LogIn from '../Authentication/LogIn/LogIn';
 import $Store from '../../store/index';
 
+
 export default {
     data() {
         return {
             name: 'Home',
             text: 'This is my HOME text',  
             loading: '',
-            loaded: ''
+            loaded: '',
+            
         }
     },
     components: {
