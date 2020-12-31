@@ -35,7 +35,7 @@ const actions = {
         })
     },
     getMyWorkDescriptions({commit}) {
-        const url = '../assets/MyWork/myWork.csv';
+        const url = '../assets/php/news/myWork.txt';
         axios.get(url)
         .then(res => {
             const readme = res.data;
