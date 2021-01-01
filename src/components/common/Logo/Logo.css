@@ -59,3 +59,16 @@
     -webkit-transform: translate3d(0,150%,0);
     transform: translate3d(0,150%,0);
   }
+
+  #logo .logoSubText {
+    color: var(--main-font-colour);
+    text-transform: lowercase;
+    text-align: center;
+    margin: 0;
+    font-size: .85em;
+    letter-spacing: 2px;
+  }
+  .logoSubText a:link {
+    text-decoration: none;
+  }
+  

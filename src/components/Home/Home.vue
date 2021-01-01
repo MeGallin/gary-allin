@@ -1,7 +1,11 @@
 <template>
 <section id="home">
-  <LogIn/>  
-  <h1>{{name}}</h1> 
+  <div class="wrapper">
+    <h1>{{name}}</h1> 
+    <LogIn/>
+  </div>
+
+
   <div class="wrapper" > 
      <!-- // Use this to get data with getters -->
      <!-- // {{getterDescriptions}} -->

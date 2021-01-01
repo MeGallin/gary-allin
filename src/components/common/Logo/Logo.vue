@@ -3,6 +3,9 @@
     <div class="navbar-brand link link--ilin">
         <a class=" " href="#/"><span>{{name}}</span><span>{{surname}}</span></a> 
     </div>
+    <div>
+        <p class="logoSubText">{{role}}</p>
+    </div>
 </div>
 </template>
 
@@ -11,7 +14,8 @@ export default {
     data() {
         return {
             name: 'GARY',
-            surname: 'ALLIN'
+            surname: 'ALLIN',
+            role: 'WEB DEVELOPER'
         }
     }
 }
