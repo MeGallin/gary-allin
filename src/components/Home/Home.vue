@@ -1,34 +1,26 @@
 <template>
 <section id="home">
-  <LogIn/>
-  
-  <h1>{{name}}</h1>
- 
+  <LogIn/>  
+  <h1>{{name}}</h1> 
   <div class="wrapper" > 
      <!-- // Use this to get data with getters -->
      <!-- // {{getterDescriptions}} -->
-      <div class="colour-one border-temp" v-for="(des) in descriptions" :key="des.id">
+    <div v-if="isLoading">
+      <Spinner/>
+    </div>
+      <div v-else class="colour-one border-temp" v-for="(des) in descriptions" :key="des.id">
         <h3>{{des.title}}</h3>
         <p>{{des.description}}</p>
         {{loading}}{{loaded}}
       </div>    
   </div>
-
-  <div class="colour-two">
-    <p>{{text}}</p></div>
-  <div class="colour-three">
-    <p>{{text}}</p></div>
-  <div class="colour-four">
-    <p>{{text}}</p>
-  </div>
-
 </section>
 </template>
 
 <script>
+import Spinner from '../common/LoadingSpinner/LoadingSpinner';
 import LogIn from '../Authentication/LogIn/LogIn';
 import $Store from '../../store/index';
-
 
 export default {
     data() {
@@ -41,12 +33,16 @@ export default {
         }
     },
     components: {
-      LogIn
+      LogIn,
+      Spinner
     },
     computed: {  
       getterDescriptions() { 
         return $Store.getters.allDescriptions
-      },   
+      }, 
+      isLoading() {
+        return $Store.getters.isLoading
+      },  
       descriptions() {     
         return $Store.state.Http.descriptions
       }

@@ -2,44 +2,59 @@ import axios from 'axios';
 const state = {
     descriptions: [],
     aboutDescriptions: [],
-    myWorkDescriptions: []
+    myWorkDescriptions: [],
+    isLoading: false
 };
 
 // THis is an alternative of getting the data
 const getters = {
     allDescriptions: (state) => state.descriptions,
     allAboutDescriptions: (state) => state.allAboutDescriptions,
-    myWorkDescriptions: (state) => state.myWorkDescriptions
+    myWorkDescriptions: (state) => state.myWorkDescriptions,
+    isLoading: (state) => state.isLoading
 };
 // THis is an alternative of getting the data
 
 const actions = {
     getDescriptions({commit}) {
+        commit('isLoading', true)
         const url = '../assets/Home/home.json';
         axios.get(url)
         .then(res => {
-            commit('SET_RES', res.data)
+            setTimeout(() => {
+                commit('SET_RES', res.data)
+                commit('isLoading', false)
+            }, 1000);
+            
         })
         .catch((err) => {
             console.log(err);
         })
     },
     getAboutDescriptions({commit}) {
+        commit('isLoading', true)
         const url = '../assets/About/About.json';
         axios.get(url)
         .then(res => {
-            commit('SET_RES_ABOUT', res.data)
+            setTimeout(() => {
+                commit('SET_RES_ABOUT', res.data)
+                commit('isLoading', false)
+            }, 1000);
         })
         .catch((error) => {
             console.log(error);
         })
     },
     getMyWorkDescriptions({commit}) {
+        commit('isLoading', true)
         const url = '../php/news/myWork.txt';
         axios.get(url)
         .then(res => {
-            const readme = res.data;
-            commit('SET_RES_MY_WORK', readme)
+            setTimeout(() => {
+                const readme = res.data;
+                commit('SET_RES_MY_WORK', readme)
+                commit('isLoading', false)  
+            }, 1000);
         })
         .catch((error) => {
             console.log(error);
@@ -56,6 +71,9 @@ const mutations = {
     },
     SET_RES_MY_WORK(state, myWorkDescriptions) {
         state.myWorkDescriptions = myWorkDescriptions
+    },
+    isLoading(state, newLoadingStatus) {
+        state.isLoading = newLoadingStatus
     }
 }
 
