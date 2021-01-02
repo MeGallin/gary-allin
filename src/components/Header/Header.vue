@@ -28,7 +28,7 @@
             </router-link>
           </li>
           <li>
-            <router-link to='/contact'>
+            <router-link to='/contact-me'>
               <a @click="setOpenMediaQuery(open)">Contact Me</a>
             </router-link>
           </li>
