@@ -16,9 +16,6 @@
           <span class="char9">m</span>
           <span class="char10 tint2">e</span>
         </h1>      
-<<<<<<< HEAD
-    </div> -->
-=======
       </div>
 
     <div class="wrapper" > 
@@ -30,7 +27,6 @@
     <div v-else class="colour-one border-temp" v-for="(des) in aboutDescriptions" :key="des.id">
  
 
->>>>>>> ga/age-component
             <h3>{{des.title}}</h3>
             <Age/>
             <p>{{des.description}}</p>
@@ -46,11 +42,7 @@
 <script>
 import $Store from '../../store/index';
 import Spinner from '../common/LoadingSpinner/LoadingSpinner';
-<<<<<<< HEAD
-import TellMe from '../common/TellMe/TellMe';
-=======
 import Age from '../common/Age/Age';
->>>>>>> ga/age-component
 export default {
     data() {
         return {
@@ -60,11 +52,7 @@ export default {
     },
     components: {
       Spinner,
-<<<<<<< HEAD
-      TellMe
-=======
       Age
->>>>>>> ga/age-component
     },
     computed: {
       getterAboutDescriptions() {
