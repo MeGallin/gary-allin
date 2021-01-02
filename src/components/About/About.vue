@@ -1,6 +1,6 @@
 <template>
 <div>  
-  <TellMe :characters="{char1:'T', char2: 'h',char3:'i',char4:'s', char5:'is',char6:'M',char7:'e'}"></TellMe>
+  <TellMe :characters="characters"></TellMe>
     <div class="wrapper" > 
       <div v-if="isLoading">
          <Spinner/>
@@ -26,7 +26,16 @@ export default {
     data() {
         return {
             name: 'About',
-            text: 'This is my About text'
+            text: 'This is my About text',
+            characters: {
+              char1:'T',
+              char2: 'h',
+              char3:'i',
+              char4:'s',
+              char5:'is',
+              char6:'M',
+              char7:'e'
+            }
         }
     },
     components: {

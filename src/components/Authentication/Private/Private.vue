@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper">
   <div class="colour-one border-temp">
-  <TellMe :characters="{char1:'M', char2: 'y',char3:' ',char4:'C', char5:'V'}"></TellMe>
+  <TellMe :characters="characters"></TellMe>
 
            <div :v-for="user in user">
           {{user.user.name}}
@@ -24,7 +24,14 @@ export default {
         return {
             name: 'Private',
             text: 'Private Zone',
-            user: User()
+            user: User(),
+            characters: {
+                char1:'M',
+                char2: 'y',
+                char3:' ',
+                char4:'C',
+                char5:'V'
+            }
         }
     },
     components: {

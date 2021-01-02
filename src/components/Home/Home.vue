@@ -1,7 +1,7 @@
 <template>
 <section id="home">
   <div class="wrapper">
-    <TellMe :characters="{char1:'W', char2: 'h',char3:'a',char4:'t', char5:'i',char6:'D',char7:'o'}"></TellMe>    
+    <TellMe :characters="chareacters"></TellMe>    
     <LogIn/>
   </div>
 
@@ -14,7 +14,7 @@
       <div v-else class="colour-one border-temp" v-for="(des) in descriptions" :key="des.id">
         <h3>{{des.title}}</h3>
         <p>{{des.description}}</p>
-        {{loading}}{{loaded}}
+        
       </div>    
   </div>
 </section>
@@ -31,8 +31,15 @@ export default {
         return {
             name: 'Home',
             text: 'This is my HOME text',  
-            loading: '',
-            loaded: '',
+            chareacters: {
+              char1:'W',
+              char2: 'h',
+              char3:'a',
+              char4:'t', 
+              char5:'i',
+              char6:'D',
+              char7:'o'
+            }
             
         }
     },

@@ -1,6 +1,6 @@
 <template>
 <section id="myWork">
-<TellMe :characters="{char1:'W', char2: 'h',char3:'a',char4:'t', char5:'\'s',char6:'D',char7:'o', char8:'n', char9:'E'}"></TellMe>
+<TellMe :characters="characters"></TellMe>
 <div class="wrapper">
     <div v-if="isLoading">
         <Spinner/>
@@ -20,7 +20,18 @@ import TellMe from '../common/TellMe/TellMe';
 export default {
     data() {
         return {
-            name: 'MyWork'
+            name: 'MyWork',
+            characters: {
+                char1:'W',
+                char2: 'h',
+                char3:'a',
+                char4:'t',
+                char5:'\'s',
+                char6:'D',
+                char7:'o',
+                char8:'n',
+                char9:'E'
+            }
         }
     },
     components: {
