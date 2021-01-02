@@ -1,10 +1,9 @@
 <template>
 <section id="home">
   <div class="wrapper">
-    <h1>{{name}}</h1> 
+    <TellMe char1='W' char2='h' char3='a' char4='t' char5='I' char6='D' char7='o'></TellMe>
     <LogIn/>
   </div>
-
 
   <div class="wrapper" > 
      <!-- // Use this to get data with getters -->
@@ -25,6 +24,7 @@
 import Spinner from '../common/LoadingSpinner/LoadingSpinner';
 import LogIn from '../Authentication/LogIn/LogIn';
 import $Store from '../../store/index';
+import TellMe from '../common/TellMe/TellMe';
 
 export default {
     data() {
@@ -38,7 +38,8 @@ export default {
     },
     components: {
       LogIn,
-      Spinner
+      Spinner,
+      TellMe
     },
     computed: {  
       getterDescriptions() { 
