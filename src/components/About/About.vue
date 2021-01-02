@@ -3,16 +3,7 @@
 
 <div class="wrapper">
   <div class="colour-one border-temp">
-    
-
-    <div class="wrapper" > 
-      <div v-if="isLoading">
-         <Spinner/>
-      </div>      
-        <!-- // Use this to get data with getters -->
-        <!-- // {{getterDescriptions}} -->
-      <div v-else class="colour-one border-temp" v-for="(des) in aboutDescriptions" :key="des.id">
-        <div class="call_me">
+         <div class="call_me">
         <h1>
           <span class="char1">T</span>
           <span class="char2 tint2">h</span>
@@ -25,8 +16,19 @@
           <span class="char9">m</span>
           <span class="char10 tint2">e</span>
         </h1>      
-    </div>
+      </div>
+
+    <div class="wrapper" > 
+      <div v-if="isLoading">
+         <Spinner/>
+      </div>      
+        <!-- // Use this to get data with getters -->
+        <!-- // {{getterDescriptions}} -->
+    <div v-else class="colour-one border-temp" v-for="(des) in aboutDescriptions" :key="des.id">
+ 
+
             <h3>{{des.title}}</h3>
+            <Age/>
             <p>{{des.description}}</p>
             
           </div>    
@@ -40,6 +42,7 @@
 <script>
 import $Store from '../../store/index';
 import Spinner from '../common/LoadingSpinner/LoadingSpinner';
+import Age from '../common/Age/Age';
 export default {
     data() {
         return {
@@ -48,7 +51,8 @@ export default {
         }
     },
     components: {
-      Spinner
+      Spinner,
+      Age
     },
     computed: {
       getterAboutDescriptions() {
