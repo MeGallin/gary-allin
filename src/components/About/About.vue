@@ -4,7 +4,7 @@
 <div class="wrapper">
   <div class="colour-one border-temp">
     
-
+    <TellMe char1="t" char2="h" char3='is' char4='i' char5='s' char6='M' char7='e'></TellMe>
     <div class="wrapper" > 
       <div v-if="isLoading">
          <Spinner/>
@@ -12,7 +12,7 @@
         <!-- // Use this to get data with getters -->
         <!-- // {{getterDescriptions}} -->
       <div v-else class="colour-one border-temp" v-for="(des) in aboutDescriptions" :key="des.id">
-        <div class="call_me">
+    <!-- <div class="call_me">
         <h1>
           <span class="char1">T</span>
           <span class="char2 tint2">h</span>
@@ -25,7 +25,7 @@
           <span class="char9">m</span>
           <span class="char10 tint2">e</span>
         </h1>      
-    </div>
+    </div> -->
             <h3>{{des.title}}</h3>
             <p>{{des.description}}</p>
             
@@ -40,6 +40,7 @@
 <script>
 import $Store from '../../store/index';
 import Spinner from '../common/LoadingSpinner/LoadingSpinner';
+import TellMe from '../common/TellMe/TellMe';
 export default {
     data() {
         return {
@@ -48,7 +49,8 @@ export default {
         }
     },
     components: {
-      Spinner
+      Spinner,
+      TellMe
     },
     computed: {
       getterAboutDescriptions() {
