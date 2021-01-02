@@ -1,22 +1,17 @@
 [
 	{
         "id": 1,
-        "title": "About one",
-		"description": "--main-bg-colour-white"
+        "title": "",
+		"description": "I am 49 years old and live in Guildford, Surrey. I have been developing websites since 2012 after changing careers from being a proprietary market trader."
 	},
 	{
         "id": 2,
-        "title": "About 2",
-		"description": "--secondary-bg-colour-orange"
+        "title": "Thinking outside the box",
+		"description": "'Too often we give our children answers to remember rather than problems to solve...'"
 	},
 	{
         "id": 3,
-        "title": "About 3",
-		"description": "--light-orange-light-orange"
-	},
-	{
-        "id": 4,
-        "title": "About 4",
-		"description": "--burnt-orange-burnt orange"
+        "title": "What else ...",
+		"description": "I grew up in South Africa and moved to  the UK with my wife and 2 daughters in 2007. I enjoy motor sports and in particular MotoGP and F1 racing. I also enjoy boxing and UFC."
 	}
 ]
