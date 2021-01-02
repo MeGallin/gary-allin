@@ -1,6 +1,6 @@
 <template>
 <div>  
-  <TellMe char1='T' char2='h' char3='i' char4='s' char5='is' char6='M' char7='e'></TellMe>
+  <TellMe :characters="{char1:'T', char2: 'h',char3:'i',char4:'s', char5:'is',char6:'M',char7:'e'}"></TellMe>
     <div class="wrapper" > 
       <div v-if="isLoading">
          <Spinner/>

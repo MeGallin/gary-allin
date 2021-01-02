@@ -1,7 +1,7 @@
 <template>
 <section id="home">
   <div class="wrapper">
-    <TellMe char1='W' char2='h' char3='a' char4='t' char5='I' char6='D' char7='o'></TellMe>
+    <TellMe :characters="{char1:'W', char2: 'h',char3:'a',char4:'t', char5:'i',char6:'D',char7:'o'}"></TellMe>    
     <LogIn/>
   </div>
 

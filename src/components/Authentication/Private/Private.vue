@@ -1,7 +1,7 @@
 <template>
 <div class="wrapper">
   <div class="colour-one border-temp">
-      <h1>{{text}}</h1>
+  <TellMe :characters="{char1:'M', char2: 'y',char3:' ',char4:'C', char5:'V'}"></TellMe>
 
            <div :v-for="user in user">
           {{user.user.name}}
@@ -17,6 +17,7 @@
 
 <script>
 import { User } from '../utils/auth';
+import TellMe from '../../common/TellMe/TellMe';
 
 export default {
     data() {
@@ -25,6 +26,9 @@ export default {
             text: 'Private Zone',
             user: User()
         }
+    },
+    components: {
+        TellMe
     }
 
 }
