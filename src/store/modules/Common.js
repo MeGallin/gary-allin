@@ -1,29 +1,29 @@
 const state = {
-isSubmitted: false,
+  isSubmitted: false,
 };
 
 const getters = {
-isSubmitted: (state) => state.isSubmitted,
+  isSubmitted: state => state.isSubmitted,
 };
 
 const actions = {
-handleCommit({ commit }, payload) {
+  handleCommit({ context }, payload) {
     if (payload === 'isSubmitted') {
-        state.isSubmitted = true;
-        }
-        commit('handleCommit', payload);
-    },
+      state.isSubmitted = true;
+    }
+    context.commit('handleCommit', payload);
+  },
 };
 
 const mutations = {
-handleCommit: function(state) {   
+  handleCommit: function(state) {
     return state.isSubmitted;
-    },
-}
+  },
+};
 
 export default {
-    state,
-    getters,
-    actions,
-    mutations
-}
+  state,
+  getters,
+  actions,
+  mutations,
+};
