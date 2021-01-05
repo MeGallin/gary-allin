@@ -7,7 +7,7 @@ const getters = {
 };
 
 const actions = {
-  handleCommit({ context }, payload) {
+  handleCommit(context, payload) {
     if (payload === 'isSubmitted') {
       state.isSubmitted = true;
     }
