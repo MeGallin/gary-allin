@@ -8,6 +8,7 @@
     <div class="wrapper">
       <!-- // Use this to get data with getters -->
       <!-- {{ allDescriptions }} -->
+
       <div v-if="isLoading">
         <Spinner />
       </div>
@@ -17,8 +18,10 @@
         v-for="des in allDescriptions"
         :key="des.id"
       >
-        <h3>{{ des.title }}</h3>
-        <p>{{ des.description }}</p>
+        <content-description
+          :title="des.title"
+          :description="des.description"
+        />
       </div>
     </div>
   </section>
@@ -30,12 +33,13 @@ import LogIn from '../Authentication/LogIn/LogIn';
 import $Store from '../../store/index';
 import TellMe from '../common/TellMe/TellMe';
 import { mapGetters } from 'vuex';
+import ContentDescription from '../common/ContentDescription/ContentDescription';
 
 export default {
   data() {
     return {
-      name: 'Home',
-      text: 'This is my HOME text',
+      title: '',
+      description: '',
       chareacters: {
         char1: 'W',
         char2: 'h',
@@ -51,6 +55,7 @@ export default {
     LogIn,
     Spinner,
     TellMe,
+    ContentDescription,
   },
   computed: {
     ...mapGetters(['allDescriptions', 'isLoading']),
