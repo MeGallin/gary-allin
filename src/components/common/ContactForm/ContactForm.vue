@@ -3,6 +3,9 @@
     <form id="contactForm" @submit.prevent="handleContactFormSubmit">
       <div>
         <label>* Name</label>
+        <span class="error" v-if="!posts.name">
+          {{ nameValitation }}
+        </span>
         <input
           type="text"
           ref="name"
@@ -13,8 +16,12 @@
       </div>
       <div>
         <label>* Email Address</label>
+        <span class="error" v-if="!posts.email">
+          {{ emailValidation }}
+        </span>
         <input
           type="email"
+          ref="email"
           name="email"
           v-model.trim="posts.email"
           :class="posts.email ? 'entered' : ''"
@@ -22,19 +29,24 @@
       </div>
       <div>
         <label> Message</label>
+        <span class="error" v-if="!posts.message">
+          {{ messageValidation }}
+        </span>
         <textarea
           name="message"
+          ref="message"
           v-model.trim="posts.message"
           :class="posts.message ? 'entered' : ''"
         ></textarea>
       </div>
-      <button
+
+      <Button
         type="submit"
         :disabled="isDisabled"
         :class="{ active: !isDisabled }"
+        :onClick="handleContactFormSubmit"
+        >SUBMIT</Button
       >
-        SUBMIT
-      </button>
       <div class="required">
         * Required
         <span class="thankYou">{{ thankYouMessage }}</span>
@@ -47,9 +59,14 @@
 import { postContactForm } from '../../../api';
 import $Store from '../../../store/index';
 import { mapActions } from 'vuex';
+import Button from '../Button/Button';
+
 export default {
   data() {
     return {
+      nameValitation: '',
+      emailValidation: '',
+      messageValidation: '',
       posts: {
         name: '',
         email: '',
@@ -57,6 +74,9 @@ export default {
       },
       thankYouMessage: '',
     };
+  },
+  components: {
+    Button,
   },
   methods: {
     async submitFormData(formData) {
@@ -70,26 +90,36 @@ export default {
     handleContactFormSubmit() {
       // Additional validation can be added here
       const enteredName = this.$refs.name.value;
-      if (enteredName === '') {
-        alert('not allowed to be emprt');
-      }
-      // Additional validation can be added here
-      let formData = {
-        name: this.posts.name,
-        email: this.posts.email,
-        message: this.posts.message,
-      };
-      this.submitFormData(formData);
-      this.posts.name = '';
-      this.posts.email = '';
-      this.posts.message = '';
-      this.thankYouMessage =
-        'Thank you. I will contact you shortly. Gary';
+      const enteredEmail = this.$refs.email.value;
+      const enteredMessage = this.$refs.message.value;
 
-      setTimeout(() => {
-        this.thankYouMessage = '';
-        this.handleCommit('isSubmitted');
-      }, 6000);
+      if (
+        enteredName === '' ||
+        enteredEmail === '' ||
+        enteredMessage === ''
+      ) {
+        this.nameValitation = 'Name is a required field';
+        this.emailValidation = 'Email is a required field';
+        this.messageValidation = 'Please provide a message';
+      } else {
+        // Additional validation can be added here
+        let formData = {
+          name: this.posts.name,
+          email: this.posts.email,
+          message: this.posts.message,
+        };
+        this.submitFormData(formData);
+        this.posts.name = '';
+        this.posts.email = '';
+        this.posts.message = '';
+        this.thankYouMessage =
+          'Thank you. I will contact you shortly. Gary';
+
+        setTimeout(() => {
+          this.thankYouMessage = '';
+          this.handleCommit('isSubmitted');
+        }, 6000);
+      }
     },
   },
   computed: {

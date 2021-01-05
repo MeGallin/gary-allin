@@ -2,7 +2,7 @@
   <section id="home">
     <div class="wrapper">
       <TellMe :characters="chareacters"></TellMe>
-      <LogIn />
+      <log-in />
     </div>
 
     <div class="wrapper">
