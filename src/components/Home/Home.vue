@@ -33,7 +33,6 @@ import LogIn from '../Authentication/LogIn/LogIn';
 import $Store from '../../store/index';
 import TellMe from '../common/TellMe/TellMe';
 import { mapGetters } from 'vuex';
-import ContentDescription from '../common/ContentDescription/ContentDescription';
 
 export default {
   data() {
@@ -55,7 +54,6 @@ export default {
     LogIn,
     Spinner,
     TellMe,
-    ContentDescription,
   },
   computed: {
     ...mapGetters(['allDescriptions', 'isLoading']),

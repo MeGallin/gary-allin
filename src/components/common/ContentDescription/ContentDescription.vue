@@ -1,7 +1,11 @@
 <template>
   <content-wrapper>
-    <h3>{{ title }}</h3>
-    <p>{{ description }}</p>
+    <template v-slot:header>
+      <h3>{{ title }}</h3>
+    </template>
+    <template v-slot:default>
+      <p>{{ description }}</p>
+    </template>
   </content-wrapper>
 </template>
 

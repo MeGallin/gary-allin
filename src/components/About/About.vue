@@ -27,7 +27,6 @@
 import $Store from '../../store/index';
 import Spinner from '../common/LoadingSpinner/LoadingSpinner';
 import TellMe from '../common/TellMe/TellMe';
-import ContentDescription from '../common/ContentDescription/ContentDescription';
 import Age from '../common/Age/Age.vue';
 
 export default {
@@ -50,7 +49,6 @@ export default {
     Spinner,
     Age,
     TellMe,
-    ContentDescription,
   },
   computed: {
     getterAboutDescriptions() {
