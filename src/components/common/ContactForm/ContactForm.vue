@@ -112,6 +112,9 @@ export default {
         this.posts.name = '';
         this.posts.email = '';
         this.posts.message = '';
+        this.nameValitation = '';
+        this.emailValidation = '';
+        this.messageValidation = '';
         this.thankYouMessage =
           'Thank you. I will contact you shortly. Gary';
 
