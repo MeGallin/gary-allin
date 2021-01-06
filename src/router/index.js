@@ -17,7 +17,7 @@ Vue.use(VueRouter);
 function authCheck(to, from, next) {
   if (!isLoggedIn()) {
     next({
-      path: '/notauthorised'
+      path: '/notauthorised',
     });
   } else {
     next();
@@ -33,13 +33,13 @@ const routes = [
   { path: '/private', beforeEnter: authCheck, component: Private },
   { path: '/notauthorised', component: NotAuthorised },
   { path: '/callback', component: Callback },
-  { path: '/:pathMatch(.*)*', redirect: PathNotFound, component: PathNotFound }, 
+  { path: '/:PathNotFound(.*)', component: PathNotFound },
 ];
 
 const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes: [...routes],
-  });
-  
-  export default router;
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes: [...routes],
+});
+
+export default router;

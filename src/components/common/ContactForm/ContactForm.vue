@@ -3,40 +3,58 @@
     <form id="contactForm" @submit.prevent="handleContactFormSubmit">
       <div>
         <label>* Name</label>
-        <span class="error" v-if="!posts.name">
-          {{ nameValitation }}
+        <span class="error" v-if="nameValitation === 'Invalid'">
+          Name is a required field
         </span>
         <input
           type="text"
           ref="name"
           name="name"
+          :class="
+            nameValitation === 'Invalid' ||
+            nameValitation === 'Pending'
+              ? 'invalid'
+              : 'entered'
+          "
+          @blur="validateInput"
           v-model.trim="posts.name"
-          :class="posts.name ? 'entered' : ''"
         />
       </div>
       <div>
         <label>* Email Address</label>
-        <span class="error" v-if="!posts.email">
-          {{ emailValidation }}
+        <span class="error" v-if="emailValidation === 'Invalid'">
+          Email is a required field
         </span>
         <input
           type="email"
           ref="email"
           name="email"
           v-model.trim="posts.email"
-          :class="posts.email ? 'entered' : ''"
+          @blur="validateInput"
+          :class="
+            emailValidation === 'Invalid' ||
+            emailValidation === 'Pending'
+              ? 'invalid'
+              : 'entered'
+          "
         />
       </div>
       <div>
         <label> Message</label>
-        <span class="error" v-if="!posts.message">
-          {{ messageValidation }}
+        <span class="error" v-if="messageValidation === 'Invalid'">
+          Message field is required.
         </span>
         <textarea
           name="message"
           ref="message"
           v-model.trim="posts.message"
-          :class="posts.message ? 'entered' : ''"
+          @blur="validateInput"
+          :class="
+            messageValidation === 'Invalid' ||
+            messageValidation === 'Pending'
+              ? 'invalid'
+              : 'entered'
+          "
         ></textarea>
       </div>
 
@@ -47,9 +65,11 @@
         :onClick="handleContactFormSubmit"
         >SUBMIT</Button
       >
-      <div class="required">
-        * Required
-        <span class="thankYou">{{ thankYouMessage }}</span>
+      <div class="messageWRapper">
+        <div class="required">
+          * Required
+        </div>
+        <div class="thankYou">{{ thankYouMessage }}</div>
       </div>
     </form>
   </div>
@@ -64,9 +84,9 @@ import Button from '../Button/Button';
 export default {
   data() {
     return {
-      nameValitation: '',
-      emailValidation: '',
-      messageValidation: '',
+      nameValitation: 'Pending',
+      emailValidation: 'Pending',
+      messageValidation: 'Pending',
       posts: {
         name: '',
         email: '',
@@ -96,7 +116,8 @@ export default {
       if (
         enteredName === '' ||
         enteredEmail === '' ||
-        enteredMessage === ''
+        enteredMessage === '' ||
+        this.submitFormData === false
       ) {
         this.nameValitation = 'Name is a required field';
         this.emailValidation = 'Email is a required field';
@@ -112,9 +133,9 @@ export default {
         this.posts.name = '';
         this.posts.email = '';
         this.posts.message = '';
-        this.nameValitation = '';
-        this.emailValidation = '';
-        this.messageValidation = '';
+        this.nameValitation = 'Pending';
+        this.emailValidation = 'Pending';
+        this.messageValidation = 'Pending';
         this.thankYouMessage =
           'Thank you. I will contact you shortly. Gary';
 
@@ -122,6 +143,25 @@ export default {
           this.thankYouMessage = '';
           this.handleCommit('isSubmitted');
         }, 6000);
+      }
+    },
+    validateInput() {
+      if (this.posts.name === '') {
+        this.nameValitation = 'Invalid';
+      } else {
+        this.nameValitation = 'Valid';
+      }
+
+      if (this.posts.email === '') {
+        this.emailValidation = 'Invalid';
+      } else {
+        this.emailValidation = 'Valid';
+      }
+
+      if (this.posts.message === '') {
+        this.messageValidation = 'Invalid';
+      } else {
+        this.messageValidation = 'Valid';
       }
     },
   },

@@ -1,5 +1,5 @@
 const state = {
-  isSubmitted: false,
+  isSubmitted: true,
 };
 
 const getters = {
