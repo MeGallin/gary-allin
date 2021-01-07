@@ -16,7 +16,7 @@
               ? 'invalid'
               : 'entered'
           "
-          @blur="validateInput"
+          @blur="validateNameInput"
           v-model.trim="posts.name"
         />
       </div>
@@ -31,7 +31,7 @@
           ref="email"
           name="email"
           v-model.trim="posts.email"
-          @blur="validateInput"
+          @blur="validateEmailInput"
           :class="
             emailValidation === 'Invalid' ||
             emailValidation === 'Pending'
@@ -49,7 +49,7 @@
           name="message"
           ref="message"
           v-model.trim="posts.message"
-          @blur="validateInput"
+          @blur="validateMessageInput"
           :class="
             messageValidation === 'Invalid' ||
             messageValidation === 'Pending'
@@ -130,19 +130,22 @@ export default {
           this.handleCommit('foo');
         }, 6000);
     },
-    validateInput() {
+    validateNameInput() {
       if (this.posts.name === '') {
         this.nameValitation = 'Invalid';
       } else {
         this.nameValitation = 'Valid';
       }
-
+    },
+    validateEmailInput() {
       if (this.posts.email === '' || !this.posts.email.includes('@')) {
         this.emailValidation = 'Invalid';
       } else {
         this.emailValidation = 'Valid';
       }
 
+    },
+    validateMessageInput() {
       if (this.posts.message === '') {
         this.messageValidation = 'Invalid';
       } else {

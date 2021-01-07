@@ -7,7 +7,7 @@ if(isset($postdata) && !empty($postdata)) {
      $email = $request['email'];
      $message = $request['message'];
      if(!empty($message)){
-        $message = $name. ", sent a contact request.\r\nThis is the message:\r\n ".$message. "and this is the email: ". $email;
+        $message = $name. ", sent a contact request.\r\nThis is the message:\r\n ".$message. "\r\n This is the email: ". $email;
      }else{
         $message = "This message is only visible to the garyallin.uk It is a contact request message from your website from " .$name. " and email address: " .$email;
      }    
