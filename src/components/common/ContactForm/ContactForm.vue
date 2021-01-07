@@ -1,6 +1,6 @@
 <template>
   <div class="form-style">
-    <form id="contactForm" @submit.prevent="handleContactFormSubmit">
+    <form id="contactForm">
       <div>
         <label>* Name</label>
         <span class="error" v-if="nameValitation === 'Invalid'">
@@ -23,7 +23,8 @@
       <div>
         <label>* Email Address</label>
         <span class="error" v-if="emailValidation === 'Invalid'">
-          Email is a required field
+          Email is a required field and needs to contain a valid email
+          address.
         </span>
         <input
           type="email"
@@ -58,13 +59,6 @@
         ></textarea>
       </div>
 
-      <Button
-        type="submit"
-        :disabled="isDisabled"
-        :class="{ active: !isDisabled }"
-        :onClick="handleContactFormSubmit"
-        >SUBMIT</Button
-      >
       <div class="messageWRapper">
         <div class="required">
           * Required
@@ -72,6 +66,13 @@
         <div class="thankYou">{{ thankYouMessage }}</div>
       </div>
     </form>
+    <Button
+      type="submit"
+      :disabled="isDisabled"
+      :class="{ active: !isDisabled }"
+      :onClick="handleContactFormSubmit"
+      >SUBMIT</Button
+    >
   </div>
 </template>
 
@@ -108,22 +109,7 @@ export default {
     },
     ...mapActions(['handleCommit']),
     handleContactFormSubmit() {
-      // Additional validation can be added here
-      const enteredName = this.$refs.name.value;
-      const enteredEmail = this.$refs.email.value;
-      const enteredMessage = this.$refs.message.value;
 
-      if (
-        enteredName === '' ||
-        enteredEmail === '' ||
-        enteredMessage === '' ||
-        this.submitFormData === false
-      ) {
-        this.nameValitation = 'Name is a required field';
-        this.emailValidation = 'Email is a required field';
-        this.messageValidation = 'Please provide a message';
-      } else {
-        // Additional validation can be added here
         let formData = {
           name: this.posts.name,
           email: this.posts.email,
@@ -141,9 +127,8 @@ export default {
 
         setTimeout(() => {
           this.thankYouMessage = '';
-          this.handleCommit('isSubmitted');
+          this.handleCommit('foo');
         }, 6000);
-      }
     },
     validateInput() {
       if (this.posts.name === '') {
@@ -152,7 +137,7 @@ export default {
         this.nameValitation = 'Valid';
       }
 
-      if (this.posts.email === '') {
+      if (this.posts.email === '' || !this.posts.email.includes('@')) {
         this.emailValidation = 'Invalid';
       } else {
         this.emailValidation = 'Valid';
@@ -171,13 +156,16 @@ export default {
         !this.posts.name || !this.posts.email || !this.posts.message
       );
     },
-    isSubmitted: {
-      get: function() {
-        return $Store.state.common.isSubmitted;
-      },
-      set: function(val) {
-        console.log(val);
-      },
+    // isSubmitted: {
+    //   get: function() {
+    //     return $Store.state.common.isSubmitted;
+    //   },
+    //   set: function(val) {
+    //     console.log(val);
+    //   },
+    // },
+    foo() {
+      return $Store.state.['common/isSubmitted'];
     },
   },
 };

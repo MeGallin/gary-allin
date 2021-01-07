@@ -1,9 +1,15 @@
 const state = {
-  isSubmitted: true,
+  isSubmitted: false,
 };
 
 const getters = {
   isSubmitted: state => state.isSubmitted,
+};
+
+const mutations = {
+  handleCommit: function(state) {
+    return state.isSubmitted;
+  },
 };
 
 const actions = {
@@ -12,12 +18,6 @@ const actions = {
       state.isSubmitted = true;
     }
     context.commit('handleCommit', payload);
-  },
-};
-
-const mutations = {
-  handleCommit: function(state) {
-    return state.isSubmitted;
   },
 };
 
