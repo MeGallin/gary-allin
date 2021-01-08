@@ -5,7 +5,7 @@ header {
   background-color: black;
   min-height: 80px;
 }
-.navWrapper { 
+.navWrapper {
   display: flex;
   justify-content: space-between;
 }
@@ -43,11 +43,9 @@ nav {
 }
 
 .navLinks li a:hover {
-  color: var(--main-font-colour); 
+  color: var(--main-font-colour);
   transition: all 200ms ease-out;
 }
-
-
 
 /* a {
   color: grey;
@@ -74,11 +72,12 @@ a.router-link-active {
     right: 5%;
     /* top: 50%;
     transform: translate(-5%, -50%); */
-    /* z-index: 2; */
+    z-index: 2;
   }
 
   .navLinks {
     position: fixed;
+    z-index: 2;
     top: 0;
     right: 0;
     background-color: var(--main-bg-colour);

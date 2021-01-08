@@ -1,0 +1,10 @@
+footer {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.75em;
+}
+footer a {
+  color: var(--main-font-colour);
+  text-decoration: underline;
+  letter-spacing: 1px;
+}

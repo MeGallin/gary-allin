@@ -4,18 +4,16 @@
       <TellMe :characters="chareacters"></TellMe>
       <log-in />
     </div>
-
+    <!-- // Use this to get data with getters -->
+    <!-- {{ homeDescriptions }} -->
     <div class="wrapper">
-      <!-- // Use this to get data with getters -->
-      <!-- {{ allDescriptions }} -->
-
       <div v-if="isLoading">
         <Spinner />
       </div>
       <div
         v-else
         class="colour-one border-temp"
-        v-for="des in allDescriptions"
+        v-for="des in homeDescriptions"
         :key="des.id"
       >
         <content-description
@@ -56,10 +54,10 @@ export default {
     TellMe,
   },
   computed: {
-    ...mapGetters(['allDescriptions', 'isLoading']),
+    ...mapGetters(['homeDescriptions', 'isLoading']),
     //ABOVE I used mapGetters in stead of writing then as functions over and over again.
     // getterDescriptions() {
-    //   return $Store.getters.allDescriptions
+    //   return $Store.getters.homeDescriptions
     // },
     // isLoading() {
     //   return $Store.getters.isLoading

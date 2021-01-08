@@ -3,66 +3,65 @@
     <nav>
       <div class="navWrapper">
         <div class="logo">
-          <router-link to='/home'><Logo /></router-link>
+          <router-link to="/home"><Logo /></router-link>
         </div>
         <div class="hamburger" @click="setOpen(!open)">
           <div class="line"></div>
           <div class="line"></div>
           <div class="line"></div>
         </div>
-        
+
         <ul :class="open ? 'navLinks open' : 'navLinks'">
           <li>
-            <router-link to='/home'>
-             <a @click="setOpenMediaQuery(open)">Home</a> 
+            <router-link to="/home" exact>
+              <a @click="setOpenMediaQuery(open)">Home</a>
             </router-link>
           </li>
           <li>
-            <router-link to='/about'>
+            <router-link to="/about">
               <a @click="setOpenMediaQuery(open)">About</a>
             </router-link>
           </li>
           <li>
-            <router-link to='/my-work'>
+            <router-link to="/my-work">
               <a @click="setOpenMediaQuery(open)">My Work</a>
             </router-link>
           </li>
           <li>
-            <router-link to='/contact-me'>
+            <router-link to="/contact-me">
               <a @click="setOpenMediaQuery(open)">Contact Me</a>
             </router-link>
           </li>
           <li>
-            <router-link to='/private'>
+            <router-link to="/private">
               <a @click="setOpenMediaQuery(open)">CV</a>
             </router-link>
           </li>
-        </ul>       
+        </ul>
       </div>
     </nav>
   </div>
 </template>
 <script>
-import Logo from '../common/Logo/Logo'
+import Logo from '../common/Logo/Logo';
 export default {
-    data() {
-        return {
-            name: 'Header',
-            open: false,
-
-        }
+  data() {
+    return {
+      name: 'Header',
+      open: false,
+    };
+  },
+  components: {
+    Logo,
+  },
+  methods: {
+    setOpen() {
+      this.open = open;
     },
-    components: {
-      Logo
-    },
-    methods: {
-      setOpen() {
-        this.open = open
-      },      
     setOpenMediaQuery() {
       this.open = false;
-    }
-    }
-}
+    },
+  },
+};
 </script>
-<style scoped src='./Header.css'></style>
+<style scoped src="./Header.css"></style>

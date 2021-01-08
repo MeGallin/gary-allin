@@ -1,8 +1,1 @@
-.wrapper {
-  display: flex;  
-  flex-wrap: wrap;
-}
-.colour-one {
-  background-color: var(--main-bg-colour);
-  flex-grow: 1;
-}
+

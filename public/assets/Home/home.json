@@ -1,22 +1,22 @@
 [
-	{
-        "id": 1,
-        "title": "Title one",
-		"description": "--main-bg-colour-black, --main-font-colour-whitesmoke"
-	},
-	{
-        "id": 2,
-        "title": "Title 2",
-		"description": "--secondary-bg-colour-orange"
-	},
-	{
-        "id": 3,
-        "title": "Title 3",
-		"description": "--light-orange-light-orange"
-	},
-	{
-        "id": 4,
-        "title": "Title 4",
-		"description": "--burnt-orange-burnt orange"
-	}
+  {
+    "id": 1,
+    "title": "Title one",
+    "description": "--main-bg-colour-black, --main-font-colour-whitesmoke, --main-bg-colour-black, --main-font-colour-whitesmoke"
+  },
+  {
+    "id": 2,
+    "title": "Title 2",
+    "description": "--secondary-bg-colour-orange"
+  },
+  {
+    "id": 3,
+    "title": "Title 3",
+    "description": "--light-orange-light-orange"
+  },
+  {
+    "id": 4,
+    "title": "Title 4",
+    "description": "--burnt-orange-burnt orange"
+  }
 ]

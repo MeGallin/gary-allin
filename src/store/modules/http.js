@@ -1,19 +1,17 @@
 import axios from 'axios';
 const state = {
-  descriptions: [],
+  homeDescriptions: [],
   aboutDescriptions: [],
   myWorkDescriptions: [],
   isLoading: false,
 };
 
-// THis is an alternative of getting the data
 const getters = {
-  allDescriptions: state => state.descriptions,
-  allAboutDescriptions: state => state.allAboutDescriptions,
+  homeDescriptions: state => state.homeDescriptions,
+  aboutDescriptions: state => state.aboutDescriptions,
   myWorkDescriptions: state => state.myWorkDescriptions,
   isLoading: state => state.isLoading,
 };
-// THis is an alternative of getting the data
 
 const actions = {
   getDescriptions(context) {
@@ -23,7 +21,7 @@ const actions = {
       .get(url)
       .then(res => {
         setTimeout(() => {
-          context.commit('SET_RES', res.data);
+          context.commit('SET_RES_HOME', res.data);
           context.commit('isLoading', false);
         }, 1000);
       })
@@ -65,8 +63,8 @@ const actions = {
 };
 
 const mutations = {
-  SET_RES(state, descriptions) {
-    state.descriptions = descriptions;
+  SET_RES_HOME(state, homeDescriptions) {
+    state.homeDescriptions = homeDescriptions;
   },
   SET_RES_ABOUT(state, aboutDescriptions) {
     state.aboutDescriptions = aboutDescriptions;

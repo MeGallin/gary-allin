@@ -1,24 +1,16 @@
 <template>
   <div>
     <TellMe :characters="characters"></TellMe>
-    <div class="wrapper">
-      <div v-if="isLoading">
-        <Spinner />
-      </div>
-      <!-- // Use this to get data with getters -->
-      <!-- // {{getterDescriptions}} -->
-      <div
-        v-else
-        class="colour-one border-temp"
-        v-for="des in aboutDescriptions"
-        :key="des.id"
-      >
-        <Age />
-        <content-description
-          :title="des.title"
-          :description="des.description"
-        />
-      </div>
+    <div v-if="isLoading">
+      <Spinner />
+    </div>
+
+    <div v-else v-for="des in aboutDescriptions" :key="des.id">
+      <content-description
+        :title="des.title"
+        :description="des.description"
+        :descriptionTwo="des.descriptionTwo"
+      />
     </div>
   </div>
 </template>
@@ -27,13 +19,14 @@
 import $Store from '../../store/index';
 import Spinner from '../common/LoadingSpinner/LoadingSpinner';
 import TellMe from '../common/TellMe/TellMe';
-import Age from '../common/Age/Age.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   data() {
     return {
       title: '',
       description: '',
+      descriptionTwo: '',
       characters: {
         char1: 'T',
         char2: 'h',
@@ -47,19 +40,10 @@ export default {
   },
   components: {
     Spinner,
-    Age,
     TellMe,
   },
   computed: {
-    getterAboutDescriptions() {
-      return $Store.getters.allAboutDescriptions;
-    },
-    isLoading() {
-      return $Store.getters.isLoading;
-    },
-    aboutDescriptions() {
-      return $Store.state.Http.aboutDescriptions;
-    },
+    ...mapGetters(['aboutDescriptions', 'isLoading']),
   },
   created() {
     $Store.dispatch('getAboutDescriptions');

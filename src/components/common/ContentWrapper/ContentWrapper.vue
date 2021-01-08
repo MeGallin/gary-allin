@@ -11,8 +11,4 @@
 export default {};
 </script>
 
-<style scoped>
-div {
-  border: green 2px solid;
-}
-</style>
+<style scoped></style>
