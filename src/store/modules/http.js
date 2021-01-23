@@ -3,6 +3,7 @@ const state = {
   homeDescriptions: [],
   aboutDescriptions: [],
   myWorkDescriptions: [],
+  cvDescriptions:[],
   isLoading: false,
 };
 
@@ -10,6 +11,7 @@ const getters = {
   homeDescriptions: state => state.homeDescriptions,
   aboutDescriptions: state => state.aboutDescriptions,
   myWorkDescriptions: state => state.myWorkDescriptions,
+  cvDescriptions: state => state.cvDescriptions,
   isLoading: state => state.isLoading,
 };
 
@@ -60,6 +62,21 @@ const actions = {
         console.log(error);
       });
   },
+  getCvDescriptions(context) {
+    context.commit('isLoading', true);
+    const url = '../assets/CV/cv.json';
+    axios
+    .get(url)
+    .then(res => {
+      setTimeout(() => {
+      context.commit('SET_RES_CV', res.data);
+      context.commit('isLoading', false);
+    }, 1000);
+    })
+    .catch(error => {
+      console.error(error);
+    })
+  }
 };
 
 const mutations = {
@@ -71,6 +88,9 @@ const mutations = {
   },
   SET_RES_MY_WORK(state, myWorkDescriptions) {
     state.myWorkDescriptions = myWorkDescriptions;
+  },
+  SET_RES_CV(state, cvDescriptions) {
+    state.cvDescriptions = cvDescriptions;
   },
   isLoading(state, newLoadingStatus) {
     state.isLoading = newLoadingStatus;
