@@ -1,4 +1,6 @@
 footer {
+  min-height: 80px;
+  background-color: black;
   display: flex;
   justify-content: space-around;
   font-size: 0.75em;
