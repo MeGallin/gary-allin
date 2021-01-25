@@ -5,8 +5,7 @@
     </template>
     <template v-slot:default>
       <div>
-        <p>{{ description }}</p>
-        <p>{{ descriptionTwo }}</p>
+        <p>{{ description }}</p>        
       </div>
     </template>
   </content-wrapper>
@@ -21,7 +20,7 @@ export default {
       name: 'ContentDescription',
     };
   },
-  props: ['title', 'description', 'descriptionTwo'],
+  props: ['title', 'description'],
 };
 </script>
 
