@@ -4,9 +4,10 @@
     <tell-me :characters="login"></tell-me>
     <tell-me :characters="register"></tell-me>
   </div>
+  <log-in />
  
     
-    <div class="wrapper border-temp">
+    <div class="wrapper">
       <div v-if="isLoading">
         <Spinner />
       </div>
@@ -21,10 +22,12 @@
           :title="des.title"
           :description="des.description"
         />
+        
       </div>
       
+      
     </div>
-  <log-in />
+  
 </section>
   
 </template>

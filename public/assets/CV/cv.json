@@ -1,13 +1,24 @@
 [
     {
       "id": 1,
-      "title": "CV",
-      "description": "This is my CV private page"
+      "title": "My curriculum vitae",
+      "description": "Thank you for showing interest in my CV. If this is your first time here then please click the login/register button below and follow the instructions.  "
     },
     {
       "id": 2,
-      "title": "Title CV 2",
-      "description": "CV paragram two"
+      "title": "",
+      "description": "The page containing my Cv is a secure page and I did it using Auth0. This demonstrates my understanding of authentication and it also shows intent from your side. "
+    },
+    {
+      "id": 3,
+      "title": "",
+      "description": "Once you have registered you will be directed to a secure page where you will be presented with a link to download a PDF copy of my CV. "
+    }
+    ,
+    {
+      "id": 4,
+      "title": "The legal stuff",
+      "description": "If you are not happy with this approach then please send me a message via my contact form and I will happily remove your details. "
     }
   ]
   
