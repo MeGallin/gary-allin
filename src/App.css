@@ -101,7 +101,12 @@ body {
   font-family: 'Signika', sans-serif;
   font-family: 'Comfortaa', cursive;
   background-color: var(--main-bg-colour);
-  color: var(--main-font-colour);
+  color: var(--main-font-colour); 
+}
+
+section {
+  border: green 1px dotted;
+  min-height: calc(100vh - 160px);
 }
 
 p {
@@ -111,6 +116,14 @@ p {
   text-align: left;
   margin-bottom: 1rem;
 }
+h3 {
+  display: inline-block;
+}
+.underline {
+  border-bottom: var(--main-font-colour) 1px solid; 
+  margin-bottom: .4em; 
+}
+
 
 /* GA Helper classes */
 .border-temp {

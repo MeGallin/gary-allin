@@ -1,7 +1,7 @@
 <template>
   <content-wrapper>
-    <template v-slot:header>
-      <h3>{{ title }}</h3>
+    <template v-slot:header>     
+        <h3 class="underline">{{ title }}</h3>      
     </template>
     <template v-slot:default>
       <div>

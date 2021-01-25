@@ -1,4 +1,5 @@
 <template>
+<section>
 <div class="wrapper">
   <div class="colour-one border-temp">
   <TellMe :characters="characters"></TellMe>
@@ -13,6 +14,7 @@
       </div>
   </div>
 </div>
+</section>
 </template>
 
 <script>

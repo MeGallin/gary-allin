@@ -12,7 +12,7 @@
       </div>
       <div
         v-else
-        class="colour-one border-temp"
+        class="colour-one"
         v-for="des in homeDescriptions"
         :key="des.id"
       >

@@ -3,7 +3,8 @@ footer {
   background-color: black;
   display: flex;
   justify-content: space-around;
-  font-size: 0.75em;
+  align-items: center;
+  font-size: 0.75em; 
 }
 footer a {
   color: var(--main-font-colour);

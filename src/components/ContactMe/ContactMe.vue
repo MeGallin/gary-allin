@@ -1,8 +1,10 @@
 <template>
+<section>
   <div>
     <TellMe :characters="characters"></TellMe>
     <ContactForm />
   </div>
+  </section>
 </template>
 
 <script>

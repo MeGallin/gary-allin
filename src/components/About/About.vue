@@ -1,4 +1,7 @@
 <template>
+<section>
+
+
   <div>
     <TellMe :characters="characters"></TellMe>
     <div v-if="isLoading">
@@ -13,6 +16,7 @@
       />
     </div>
   </div>
+  </section>
 </template>
 
 <script>
