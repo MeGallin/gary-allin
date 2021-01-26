@@ -5,7 +5,9 @@
   <div>
     <TellMe :characters="characters"></TellMe>
     <div v-if="isLoading">
-      <Spinner />
+      <div  class="middelPage">
+        <Spinner />
+      </div>      
     </div>
 
     <div v-else v-for="des in aboutDescriptions" :key="des.id">

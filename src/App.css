@@ -122,6 +122,12 @@ h3 {
   border-bottom: var(--main-font-colour) 1px solid; 
   margin-bottom: .4em; 
 }
+.middelPage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 
 /* GA Helper classes */

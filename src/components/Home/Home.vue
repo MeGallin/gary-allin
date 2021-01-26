@@ -8,7 +8,9 @@
     <!-- {{ homeDescriptions }} -->
     <div class="wrapper">
       <div v-if="isLoading">
-        <Spinner />
+        <div  class="middelPage">
+         <Spinner />
+        </div> 
       </div>
       <div
         v-else
