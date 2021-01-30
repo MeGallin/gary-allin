@@ -1,8 +1,8 @@
 <template>
-  <footer class="wrapper">
+  <footer>
     <div class="wrapper">
       <p>
-        <a :href="gitHubUrl" target="_blank">{{ gitHub }}</a>        
+        <a :href="gitHubUrl" target="_blank">{{ gitHub }}</a>
       </p>
       <p class="spacer">|</p>
       <p>
@@ -13,18 +13,20 @@
         <a :href="fiddelUrl" target="_blank">{{ fiddle }}</a>
       </p>
       <p class="spacer">|</p>
-      <p>Hosted by
-        <a :href="twsUrl" target="_blank">{{ hostedBy }}</a>.
-      </p>
-    </div>
-    <div class="wrapper">
       <p>
-        <Date />        
+        <a :href="twsUrl" target="_blank">{{ hostedBy }}</a>
       </p>
-      <p class="spacer">|</p>
-      <p>{{ hits }}</p>
     </div>
 
+    <div class="wrapper">
+      <p class="dateWidth">
+        <Date />
+      </p>
+    </div>
+
+    <div class="wrapper">
+      <p>{{ hits }}</p>
+    </div>
   </footer>
 </template>
 
@@ -38,7 +40,7 @@ export default {
       gitHub: 'GITHUB',
       gitHubUrl: 'https://github.com/MeGallin',
       fiddle: 'Fiddle',
-      fiddelUrl:'https://jsfiddle.net/',
+      fiddelUrl: 'https://jsfiddle.net/',
       hostedBy: 'Trilogy Web Solutions (Ltd)',
       twsUrl: 'https://www.trilogywebsolutions.co.uk',
       linkedIn: 'LinkedIn',

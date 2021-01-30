@@ -1,22 +1,26 @@
 footer {
+  padding-top: 1em;
   min-height: 80px;
   background-color: black;
-  font-size: 0.7em; 
+  font-size: 0.7em;
 }
 footer a {
-  color: var(--main-font-colour);
-  text-decoration: underline;
+  color: grey;
+  font-weight: 400;
+  text-decoration: none;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
-footer p {
- 
+footer a:hover {
+  color: var(--main-font-colour);
 }
+
 .wrapper {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
 }
 .wrapper p {
   font-size: 1em;
@@ -24,4 +28,7 @@ footer p {
 .spacer {
   padding: 0 1em;
 }
-
+.dateWidth {
+  width: 100%;
+  text-align: center;
+}
