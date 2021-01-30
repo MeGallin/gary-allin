@@ -1,13 +1,27 @@
 footer {
   min-height: 80px;
   background-color: black;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 0.75em; 
+  font-size: 0.7em; 
 }
 footer a {
   color: var(--main-font-colour);
   text-decoration: underline;
   letter-spacing: 1px;
 }
+footer p {
+ 
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;  
+}
+.wrapper p {
+  font-size: 1em;
+}
+.spacer {
+  padding: 0 1em;
+}
+
