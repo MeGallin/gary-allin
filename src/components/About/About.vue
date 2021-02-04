@@ -1,23 +1,26 @@
 <template>
-<section>
+  <section>
+    <modal v-cloak>
+      <h3 slot="header" class="underline">Modal 2</h3>
+      <div slot="body">This is where the content can be edited</div>
+    </modal>
 
+    <div>
+      <TellMe :characters="characters"></TellMe>
+      <div v-if="isLoading">
+        <div class="middelPage">
+          <Spinner />
+        </div>
+      </div>
 
-  <div>
-    <TellMe :characters="characters"></TellMe>
-    <div v-if="isLoading">
-      <div  class="middelPage">
-        <Spinner />
-      </div>      
+      <div v-else v-for="des in aboutDescriptions" :key="des.id">
+        <content-description
+          :title="des.title"
+          :description="des.description"
+          :descriptionTwo="des.descriptionTwo"
+        />
+      </div>
     </div>
-
-    <div v-else v-for="des in aboutDescriptions" :key="des.id">
-      <content-description
-        :title="des.title"
-        :description="des.description"
-        :descriptionTwo="des.descriptionTwo"
-      />
-    </div>
-  </div>
   </section>
 </template>
 
@@ -25,6 +28,7 @@
 import $Store from '../../store/index';
 import Spinner from '../common/LoadingSpinner/LoadingSpinner';
 import TellMe from '../common/TellMe/TellMe';
+import Modal from '../common/Modal/Modal';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -47,6 +51,7 @@ export default {
   components: {
     Spinner,
     TellMe,
+    Modal,
   },
   computed: {
     ...mapGetters(['aboutDescriptions', 'isLoading']),
