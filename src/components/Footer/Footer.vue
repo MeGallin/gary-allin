@@ -16,6 +16,10 @@
       <p>
         <a :href="twsUrl" target="_blank">{{ hostedBy }}</a>
       </p>
+      <p class="spacer">|</p>
+            <p>
+        <a :href="'mailto:' + email">Email</a>
+      </p>
     </div>
 
     <div class="wrapper">
@@ -45,6 +49,7 @@ export default {
       twsUrl: 'https://www.trilogywebsolutions.co.uk',
       linkedIn: 'LinkedIn',
       linkedInUrl: 'https://www.linkedin.com/mynetwork/',
+      email: 'me@garyallin.uk',
       hits: '',
     };
   },
