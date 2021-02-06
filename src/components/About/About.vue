@@ -1,23 +1,29 @@
 <template>
-<section>
+  <section>
+    <modal v-cloak>
+      <h3 slot="header" class="underline">Send me a message</h3>
+      <div slot="body">
+        <contact-form/>
+      </div>
+      <div slot="footer"></div>
+    </modal>
 
+    <div>
+      <TellMe :characters="characters"></TellMe>
+      <div v-if="isLoading">
+        <div class="middelPage">
+          <Spinner />
+        </div>
+      </div>
 
-  <div>
-    <TellMe :characters="characters"></TellMe>
-    <div v-if="isLoading">
-      <div  class="middelPage">
-        <Spinner />
-      </div>      
+      <div v-else v-for="des in aboutDescriptions" :key="des.id">
+        <content-description
+          :title="des.title"
+          :description="des.description"
+          :descriptionTwo="des.descriptionTwo"
+        />
+      </div>
     </div>
-
-    <div v-else v-for="des in aboutDescriptions" :key="des.id">
-      <content-description
-        :title="des.title"
-        :description="des.description"
-        :descriptionTwo="des.descriptionTwo"
-      />
-    </div>
-  </div>
   </section>
 </template>
 
@@ -25,7 +31,10 @@
 import $Store from '../../store/index';
 import Spinner from '../common/LoadingSpinner/LoadingSpinner';
 import TellMe from '../common/TellMe/TellMe';
+import Modal from '../common/Modal/Modal';
 import { mapGetters } from 'vuex';
+import ContactForm from '../common/ContactForm/ContactForm'
+
 
 export default {
   data() {
@@ -47,6 +56,9 @@ export default {
   components: {
     Spinner,
     TellMe,
+    Modal,
+    ContactForm
+
   },
   computed: {
     ...mapGetters(['aboutDescriptions', 'isLoading']),

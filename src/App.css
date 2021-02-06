@@ -101,11 +101,11 @@ body {
   font-family: 'Signika', sans-serif;
   font-family: 'Comfortaa', cursive;
   background-color: var(--main-bg-colour);
-  color: var(--main-font-colour); 
+  color: var(--main-font-colour);
 }
 
 section {
-  min-height: calc(100vh - 160px - 0.4em);
+  min-height: calc(100vh - 160px - 1.4em);
 }
 
 p {
@@ -119,8 +119,8 @@ h3 {
   display: inline-block;
 }
 .underline {
-  border-bottom: var(--main-font-colour) 1px solid; 
-  margin-bottom: .4em; 
+  border-bottom: var(--main-font-colour) 1px solid;
+  margin-bottom: 0.4em;
 }
 .middelPage {
   position: absolute;
@@ -128,7 +128,6 @@ h3 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 
 /* GA Helper classes */
 .border-temp {
