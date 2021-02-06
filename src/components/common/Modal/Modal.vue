@@ -2,33 +2,36 @@
   <div id="modal">
     <button @click="handleModal(true)">Open Modal</button>
 
+    <transition name="fade">
     <div v-if="openModal">
-      <div class="modalMask" transition="modal">
-        <div class="modalWrapper">
-          <div class="modalContainer">
+      <div class="modalMask">
+        <div class="modalWrapper">          
+          <div class="modalContainer">          
+
             <div class="modalHeader">
-              <slot name="header">default header</slot>
+              <slot name="header"></slot>
+              <button
+                    class="modalButton"
+                    @click="handleModal(false)">
+                    X
+              </button>
             </div>
 
             <div class="modalBody">
-              <slot name="body">default body</slot>
+              <slot name="body"></slot>
             </div>
 
             <div class="modalFooter">
-              <slot name="footer">
-                <button
-                  class="modalButton"
-                  @click="handleModal(false)"
-                >
-                  X
-                </button>
-              </slot>
+              <slot name="footer"></slot>
             </div>
+            
           </div>
         </div>
       </div>
     </div>
+</transition>
   </div>
+  
 </template>
 
 <script>

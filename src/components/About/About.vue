@@ -1,8 +1,11 @@
 <template>
   <section>
     <modal v-cloak>
-      <h3 slot="header" class="underline">Modal 2</h3>
-      <div slot="body">This is where the content can be edited</div>
+      <h3 slot="header" class="underline">Send me a message</h3>
+      <div slot="body">
+        <contact-form/>
+      </div>
+      <div slot="footer"></div>
     </modal>
 
     <div>
@@ -30,6 +33,8 @@ import Spinner from '../common/LoadingSpinner/LoadingSpinner';
 import TellMe from '../common/TellMe/TellMe';
 import Modal from '../common/Modal/Modal';
 import { mapGetters } from 'vuex';
+import ContactForm from '../common/ContactForm/ContactForm'
+
 
 export default {
   data() {
@@ -52,6 +57,8 @@ export default {
     Spinner,
     TellMe,
     Modal,
+    ContactForm
+
   },
   computed: {
     ...mapGetters(['aboutDescriptions', 'isLoading']),
