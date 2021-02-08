@@ -99,6 +99,24 @@ export default {
   components: {
     Button,
   },
+  watch: {
+    'posts.name': function(newVal) { 
+      if(newVal) {
+        this.validateNameInput();
+      }
+    },
+    'posts.email': function(newVal) {
+      if(newVal) {
+        this.validateEmailInput();
+      }
+    },
+    'posts.message': function(newVal) {
+      if(newVal) {
+        this.validateMessageInput();
+      }
+    }
+
+  },
   methods: {
     async submitFormData(formData) {
       try {
@@ -154,6 +172,7 @@ export default {
     },
   },
   computed: {
+    
     isDisabled() {
       return (
         !this.posts.name || !this.posts.email || !this.posts.message
