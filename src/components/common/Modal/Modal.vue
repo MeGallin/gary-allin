@@ -1,6 +1,8 @@
 <template>
   <div id="modal">
-    <button @click="handleModal(true)">Open Modal</button>
+    <button @click="handleModal(true)">
+      <slot name="button"></slot>
+    </button>
 
     <transition name="fade">
     <div v-if="openModal">

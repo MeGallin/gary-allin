@@ -41,7 +41,7 @@
         />
       </div>
       <div>
-        <label> Message</label>
+        <label>* Message</label>
         <span class="error" v-if="messageValidation === 'Invalid'">
           Message field is required.
         </span>
@@ -59,10 +59,7 @@
         ></textarea>
       </div>
 
-      <div class="messageWRapper">
-        <div class="required">
-          * Required
-        </div>
+      <div class="messageWRapper">    
         <div class="thankYou">{{ thankYouMessage }}</div>
       </div>
     </form>
@@ -101,12 +98,12 @@ export default {
   },
   watch: {
     'posts.name': function(newVal) { 
-      if(newVal) {
+      if(newVal.length >= 3) {
         this.validateNameInput();
       }
     },
     'posts.email': function(newVal) {
-      if(newVal) {
+      if(newVal.length >= 3) {
         this.validateEmailInput();
       }
     },
