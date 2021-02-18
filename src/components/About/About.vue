@@ -1,6 +1,7 @@
 <template>
   <section>
     <modal v-cloak>
+      <span slot="button">Contact Me</span>
       <h3 slot="header" class="underline">Send me a message</h3>
       <div slot="body">
         <contact-form/>
