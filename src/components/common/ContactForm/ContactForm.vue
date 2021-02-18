@@ -73,6 +73,18 @@
       :onClick="handleContactFormSubmit"
       >SUBMIT</Button
     >
+    <span class="windowSize" v-if="!textAreaHeight || !textAreaWidth">
+      {{textAreaHeightWidthMessage}}
+    </span>
+    <span v-else>
+      <span       
+      title="Resize you window"
+      class="windowSize" 
+      :class="textAreaWidth > 650 ? 'windowSizeYellow':'windowSizeRed' " v-if="textAreaHeight || textAreaWidth">
+      {{ textAreaHeight }}x{{textAreaWidth}}
+      </span>
+    </span>
+    
   </div>
 </template>
 
@@ -94,6 +106,10 @@ export default {
         message: '',
       },
       thankYouMessage: '',
+
+      textAreaHeightWidthMessage: 'Resize your window to see what happens.',
+      textAreaHeight: null,
+      textAreaWidth: null,
     };
   },
   components: {
@@ -127,7 +143,6 @@ export default {
     },
     ...mapActions(['handleCommit']),
     handleContactFormSubmit() {
-
         let formData = {
           name: this.posts.name,
           email: this.posts.email,
@@ -171,24 +186,22 @@ export default {
       }
     },
   },
-  computed: {
-    
+  computed: {    
     isDisabled() {
       return (
         !this.posts.name || !this.posts.email || !this.posts.message
       );
     },
-    // isSubmitted: {
-    //   get: function() {
-    //     return $Store.state.common.isSubmitted;
-    //   },
-    //   set: function(val) {
-    //     console.log(val);
-    //   },
-    // },
+
     foo() {
       return $Store.state.['common/isSubmitted'];
     },
+  },
+   mounted() {
+    window.onresize = () => {    
+        this.textAreaHeight = this.$refs.message.offsetHeight;
+        this.textAreaWidth = this.$refs.message.offsetWidth;        
+    }
   },
 };
 </script>

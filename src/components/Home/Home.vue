@@ -1,5 +1,5 @@
 <template>
-  <section id="home">
+  <section id="home"  ref="sectionDimensions">
     <div class="wrapper">
       <TellMe :characters="chareacters"></TellMe>
       <log-in />
@@ -13,17 +13,30 @@
         </div> 
       </div>
       <div
+       
         v-else
         class="colour-one"
         v-for="des in homeDescriptions"
         :key="des.id"
-      >
+      >      
         <content-description
           :title="des.title"
           :description="des.description"
         />
       </div>
     </div>
+    
+    <span class="windowSize" v-if="!sectionHeight || !sectionWidth">
+      {{sectionHeightWidthMessage}}
+    </span>
+    <span v-else>
+      <span       
+      title="Dimensions of the section element"
+      class="windowSize" 
+      :class="sectionWidth > 650 ? 'windowSizeYellow':'windowSizeRed' " v-if="sectionHeight || sectionWidth">
+      {{ sectionHeight }}x{{ sectionWidth }}
+      </span>
+    </span>
   </section>
 </template>
 
@@ -48,7 +61,16 @@ export default {
         char6: 'D',
         char7: 'o',
       },
+    sectionHeightWidthMessage:'Resize your window to see what happens.',
+    sectionHeight: null,
+    sectionWidth: null
     };
+  },
+  mounted() {
+    window.onresize = () => {    
+        this.sectionHeight = this.$refs.sectionDimensions.offsetHeight;
+        this.sectionWidth = this.$refs.sectionDimensions.offsetWidth;
+    }
   },
   components: {
     LogIn,
@@ -57,20 +79,11 @@ export default {
   },
   computed: {
     ...mapGetters(['homeDescriptions', 'isLoading']),
-    //ABOVE I used mapGetters in stead of writing then as functions over and over again.
-    // getterDescriptions() {
-    //   return $Store.getters.homeDescriptions
-    // },
-    // isLoading() {
-    //   return $Store.getters.isLoading
-    // },
-    // descriptions() {
-    //   return $Store.state.Http.descriptions;
-    // },
-  },
+   },
   created() {
     $Store.dispatch('getDescriptions');
   },
+ 
 };
 </script>
 
