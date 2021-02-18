@@ -1,5 +1,5 @@
 <template>
-  <section id="home"  ref="sectionDimensions">
+  <section id="home" ref="sectionDimensions">
     <div class="wrapper">
       <TellMe :characters="chareacters"></TellMe>
       <log-in />
@@ -8,33 +8,52 @@
     <!-- {{ homeDescriptions }} -->
     <div class="wrapper">
       <div v-if="isLoading">
-        <div  class="middelPage">
-         <Spinner />
-        </div> 
+        <div class="middelPage">
+          <Spinner />
+        </div>
       </div>
+
       <div
-       
         v-else
         class="colour-one"
         v-for="des in homeDescriptions"
         :key="des.id"
-      >      
+      >
         <content-description
           :title="des.title"
           :description="des.description"
         />
       </div>
     </div>
-    
-    <span class="windowSize" v-if="!sectionHeight || !sectionWidth">
-      {{sectionHeightWidthMessage}}
+
+    <div v-if="!isLoading" class="wrapper">
+      <div>
+        block here
+      </div>
+      <div>
+        block here
+      </div>
+      <div>
+        block here
+      </div>
+    </div>
+
+    <span
+      class="windowSize"
+      v-if="!isLoading && (!sectionHeight || !sectionWidth)"
+    >
+      {{ sectionHeightWidthMessage }}
     </span>
     <span v-else>
-      <span       
-      title="Dimensions of the section element"
-      class="windowSize" 
-      :class="sectionWidth > 650 ? 'windowSizeYellow':'windowSizeRed' " v-if="sectionHeight || sectionWidth">
-      {{ sectionHeight }}x{{ sectionWidth }}
+      <span
+        title="Dimensions of the section element"
+        class="windowSize"
+        :class="
+          sectionWidth > 650 ? 'windowSizeYellow' : 'windowSizeRed'
+        "
+        v-if="sectionHeight || sectionWidth"
+      >
+        {{ sectionHeight }}x{{ sectionWidth }}
       </span>
     </span>
   </section>
@@ -61,16 +80,17 @@ export default {
         char6: 'D',
         char7: 'o',
       },
-    sectionHeightWidthMessage:'Resize your window to see what happens.',
-    sectionHeight: null,
-    sectionWidth: null
+      sectionHeightWidthMessage:
+        'Resize your window to see what happens.',
+      sectionHeight: null,
+      sectionWidth: null,
     };
   },
   mounted() {
-    window.onresize = () => {    
-        this.sectionHeight = this.$refs.sectionDimensions.offsetHeight;
-        this.sectionWidth = this.$refs.sectionDimensions.offsetWidth;
-    }
+    window.onresize = () => {
+      this.sectionHeight = this.$refs.sectionDimensions.offsetHeight;
+      this.sectionWidth = this.$refs.sectionDimensions.offsetWidth;
+    };
   },
   components: {
     LogIn,
@@ -79,11 +99,10 @@ export default {
   },
   computed: {
     ...mapGetters(['homeDescriptions', 'isLoading']),
-   },
+  },
   created() {
     $Store.dispatch('getDescriptions');
   },
- 
 };
 </script>
 

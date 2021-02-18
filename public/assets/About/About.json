@@ -2,17 +2,44 @@
   {
     "id": 1,
     "title": "",
-    "description": "I am 49 years old and live in Guildford, Surrey. I have been developing websites since 2012 after changing careers from being a proprietary market trader. I love anything web related. I endorse progressive web techniques and make an effort to learn something new everyday",
-    "descriptionTwo": "This a paragraph two I am 49 years old and live in Guildford, Surrey. I have been developing websites since 2012 after changing careers from being a proprietary market trader. I love anything web related."
+    "description": "I have been developing websites and web applications since 2010 after changing careers from being a proprietary market trader. I love anything web related. I endorse progressive web techniques and make an effort to learn something new everyday.",
+    "descriptionTwo": "I grew up in South Africa and moved to  the UK with my wife and 2 daughters in 2007. I enjoy motor sports and in particular MotoGP and F1 racing. I also enjoy boxing and UFC."
   },
   {
     "id": 2,
-    "title": "Thinking outside the box",
-    "description": "'Too often we give our children answers to remember rather than problems to solve...'"
+    "title": "Skill Summary",
+    "description": "Front-end development mainly with some back-end experience.",
+    "descriptionTwo": "12 years plus commercial experience using various front-end technologies and working experience with back-end technologies."
   },
   {
     "id": 3,
-    "title": "Thinking outside the box",
-    "description": "I grew up in South Africa and moved to  the UK with my wife and 2 daughters in 2007. I enjoy motor sports and in particular MotoGP and F1 racing. I also enjoy boxing and UFC."
+    "title": "Technologies",
+    "description": "AngularJS and Angular(2+) and ngrx, RXJS, Typescript and Angular Cli.",
+    "descriptionTwo": "VueJs(2/3), VueX, Vue Cli.",
+    "descriptionThree": "React and Redux.",
+    "descriptionFour": "HTML, CSS(3) and BootStrap(3/4), Javascript and ES6, jQuery, PHP and NodeJS.",
+    "descriptionFive": "Back-end technologies like PHP(5/7) and NodeJS.",
+    "descriptionSix": "GitHub, GitLab and GIT."
+  },
+  {
+    "id": 4,
+    "title": "Project management",
+    "description": "JIRA and Confluence.",
+    "descriptionTwo": "Crucible and Redmine, Slack, Monday.com, Trello."
+  },
+  {
+    "id": 5,
+    "title": "Web design and UX.",
+    "description": "Adobe PhotoShop and Illustrator."
+  },
+  {
+    "id": 6,
+    "title": "Hosting",
+    "description": "CPanel, Xampp, Apache and Ubuntu. "
+  },
+  {
+    "id": 7,
+    "title": "Integrations",
+    "description": "AWS and Firebase and Auth0."
   }
 ]
