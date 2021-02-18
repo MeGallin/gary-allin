@@ -106,7 +106,7 @@ body {
 
 section {
   min-height: calc(100vh - 160px - 1.4em);
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -142,6 +142,7 @@ h3 {
   color: var(--light-orange);
 }
 /* Window resizing stuff */
+
 /* GA Helper classes */
 .border-temp {
   border: 2px solid var(--secondary-bg-colour);
