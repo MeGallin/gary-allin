@@ -130,7 +130,18 @@ h3 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+/* Window resizing stuff */
+.windowSize {
+  cursor: pointer;
+  font-size: 0.6rem;
+}
+.windowSizeRed {
+  color: var(--secondary-bg-orange);
+}
+.windowSizeYellow {
+  color: var(--light-orange);
+}
+/* Window resizing stuff */
 /* GA Helper classes */
 .border-temp {
   border: 2px solid var(--secondary-bg-colour);
