@@ -19,3 +19,7 @@
   background-color: var(--burnt-orange);
   flex-grow: 1;
 }
+.innerWrapper {
+  border: red 1px solid;
+  /* flex-grow: 1; */
+}

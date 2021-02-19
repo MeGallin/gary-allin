@@ -26,15 +26,17 @@
       </div>
     </div>
 
-    <div v-if="!isLoading" class="wrapper">
-      <div>
-        block here
+    <div class="wrapper">
+      <div class="innerWrapper">
+        <FirstCard></FirstCard>
       </div>
-      <div>
-        block here
+
+      <div class="innerWrapper">
+        <FirstCard></FirstCard>
       </div>
-      <div>
-        block here
+
+      <div class="innerWrapper">
+        <FirstCard></FirstCard>
       </div>
     </div>
 
@@ -65,6 +67,7 @@ import LogIn from '../Authentication/LogIn/LogIn';
 import $Store from '../../store/index';
 import TellMe from '../common/TellMe/TellMe';
 import { mapGetters } from 'vuex';
+import FirstCard from './FirstCard';
 
 export default {
   data() {
@@ -96,12 +99,18 @@ export default {
     LogIn,
     Spinner,
     TellMe,
+    FirstCard,
   },
   computed: {
-    ...mapGetters(['homeDescriptions', 'isLoading']),
+    ...mapGetters([
+      'homeDescriptions',
+      'angularDescriptions',
+      'isLoading',
+    ]),
   },
   created() {
     $Store.dispatch('getDescriptions');
+    $Store.dispatch('getAngularDescriptions');
   },
 };
 </script>
