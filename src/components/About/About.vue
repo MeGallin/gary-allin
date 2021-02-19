@@ -3,11 +3,7 @@
     <div>
       <div class="wrapper">
         <TellMe :characters="characters"></TellMe>
-        <div class="wrapper">
-          <img class="angularIcon" :src="AngularIcon" alt="Angular" />
-          <img class="vueIcon" :src="VueIcon" alt="VUEJS" />
-          <img class="reactIcon" :src="ReactIcon" alt="ReactJS" />
-        </div>
+        <Images></Images>
       </div>
 
       <div class="wrapper">
@@ -48,9 +44,7 @@ import TellMe from '../common/TellMe/TellMe';
 import Modal from '../common/Modal/Modal';
 import { mapGetters } from 'vuex';
 import ContactForm from '../common/ContactForm/ContactForm';
-import AngularIcon from '../../../public/assets/Images/Icons/Angular_full_color_logo.svg.png';
-import VueIcon from '../../../public/assets/Images/Icons/512px-Vue.js_Logo_2.svg.png';
-import ReactIcon from '../../../public/assets/Images/Icons/512px-React-icon.svg.png';
+import Images from '../common/Images/Images';
 
 export default {
   data() {
@@ -67,9 +61,6 @@ export default {
         char6: 'M',
         char7: 'e',
       },
-      AngularIcon: AngularIcon,
-      VueIcon: VueIcon,
-      ReactIcon: ReactIcon,
     };
   },
   components: {
@@ -77,6 +68,7 @@ export default {
     TellMe,
     Modal,
     ContactForm,
+    Images,
   },
   computed: {
     ...mapGetters(['aboutDescriptions', 'isLoading']),

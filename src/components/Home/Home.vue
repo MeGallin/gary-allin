@@ -4,6 +4,7 @@
       <TellMe :characters="chareacters"></TellMe>
       <log-in />
     </div>
+
     <!-- // Use this to get data with getters -->
     <!-- {{ homeDescriptions }} -->
     <div class="wrapper">
@@ -28,13 +29,24 @@
 
     <div v-if="!isLoading" class="wrapper">
       <div>
-        block here
+        <div class="iconWrapper">
+          <Images :images="images.AngularIcon" alt="AngularIcon" />
+          <Images :images="images.RXJSIcon" alt="RXJSIcon" />
+          <Images :images="images.PHPIcon" alt="PHPIcon" />
+        </div>
       </div>
       <div>
-        block here
+        <div class="iconWrapper">
+          <Images :images="images.VueIcon" alt="VueIcon" />
+          <Images :images="images.PHPIcon" alt="PHPIcon" />
+        </div>
       </div>
       <div>
-        block here
+        <div class="iconWrapper">
+          <Images :images="images.ReactIcon" alt="ReactIcon" />
+          <Images :images="images.ReduxIcon" alt="ReduxIcon" />
+          <Images :images="images.PHPIcon" alt="PHPIcon" />
+        </div>
       </div>
     </div>
 
@@ -65,6 +77,13 @@ import LogIn from '../Authentication/LogIn/LogIn';
 import $Store from '../../store/index';
 import TellMe from '../common/TellMe/TellMe';
 import { mapGetters } from 'vuex';
+import Images from '../common/Images/Images';
+import AngularIcon from '../../../public/assets/Images/Icons/angular-icon.svg';
+import VueIcon from '../../../public/assets/Images/Icons/vue-js-1.svg';
+import ReactIcon from '../../../public/assets/Images/Icons/react-2.svg';
+import ReduxIcon from '../../../public/assets/Images/Icons/redux.svg';
+import PHPIcon from '../../../public/assets/Images/Icons/php-1.svg';
+import RXJSIcon from '../../../public/assets/Images/Icons/rxjs-1.svg';
 
 export default {
   data() {
@@ -79,6 +98,14 @@ export default {
         char5: 'i',
         char6: 'D',
         char7: 'o',
+      },
+      images: {
+        AngularIcon: AngularIcon,
+        RXJSIcon: RXJSIcon,
+        PHPIcon: PHPIcon,
+        VueIcon: VueIcon,
+        ReactIcon: ReactIcon,
+        ReduxIcon: ReduxIcon,
       },
       sectionHeightWidthMessage:
         'Resize your window to see what happens.',
@@ -96,6 +123,7 @@ export default {
     LogIn,
     Spinner,
     TellMe,
+    Images,
   },
   computed: {
     ...mapGetters(['homeDescriptions', 'isLoading']),

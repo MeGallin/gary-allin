@@ -6,17 +6,7 @@
   },
   {
     "id": 2,
-    "title": "Title 2",
-    "description": "--secondary-bg-colour-orange"
-  },
-  {
-    "id": 3,
-    "title": "Title 3",
-    "description": "--light-orange-light-orange"
-  },
-  {
-    "id": 4,
-    "title": "Title 4",
-    "description": "--burnt-orange-burnt orange"
+    "title": "Recent Projects",
+    "description": "Here are some of my private recent projects."
   }
 ]
