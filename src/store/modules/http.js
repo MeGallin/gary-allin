@@ -1,14 +1,16 @@
 import axios from 'axios';
 const state = {
   homeDescriptions: [],
+  angularDescriptions: [],
   aboutDescriptions: [],
   myWorkDescriptions: [],
-  cvDescriptions:[],
+  cvDescriptions: [],
   isLoading: false,
 };
 
 const getters = {
   homeDescriptions: state => state.homeDescriptions,
+  angularDescriptions: state => state.angularDescriptions,
   aboutDescriptions: state => state.aboutDescriptions,
   myWorkDescriptions: state => state.myWorkDescriptions,
   cvDescriptions: state => state.cvDescriptions,
@@ -66,22 +68,40 @@ const actions = {
     context.commit('isLoading', true);
     const url = '../assets/CV/cv.json';
     axios
-    .get(url)
-    .then(res => {
-      setTimeout(() => {
-      context.commit('SET_RES_CV', res.data);
-      context.commit('isLoading', false);
-    }, 1000);
-    })
-    .catch(error => {
-      console.error(error);
-    })
-  }
+      .get(url)
+      .then(res => {
+        setTimeout(() => {
+          context.commit('SET_RES_CV', res.data);
+          context.commit('isLoading', false);
+        }, 1000);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  },
+  getAngularDescriptions(context) {
+    context.commit('isLoading', true);
+    const url = '../assets/Home/angularProject.json';
+    axios
+      .get(url)
+      .then(res => {
+        setTimeout(() => {
+          context.commit('SET_RES_ANGULAR_PROJECT', res.data);
+          context.commit('isLoading', false);
+        }, 1000);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  },
 };
 
 const mutations = {
   SET_RES_HOME(state, homeDescriptions) {
     state.homeDescriptions = homeDescriptions;
+  },
+  SET_RES_ANGULAR_PROJECT(state, angularDescriptions) {
+    state.angularDescriptions = angularDescriptions;
   },
   SET_RES_ABOUT(state, aboutDescriptions) {
     state.aboutDescriptions = aboutDescriptions;
