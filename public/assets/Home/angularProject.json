@@ -7,6 +7,7 @@
   {
     "id": 2,
     "title": "Your Corporate Memory",
-    "description": "Built using the Angular framework. This consist..."
+    "description": "Built using the Angular(9) framework for the front-end and PHP for the backend end points.",
+    "descriptionTwo": "This is application that can be used to store information about your company or personal"
   }
 ]

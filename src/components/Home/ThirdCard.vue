@@ -3,13 +3,12 @@
     <div v-if="!isLoading">
       <div
         class="content-wrapper"
-        v-for="des in angularDescription"
+        v-for="des in reactDescription"
         :key="des.id"
       >
         <content-description
           :title="des.title"
           :description="des.description"
-          :descriptionTwo="des.descriptionTwo"
         />
       </div>
     </div>
@@ -24,14 +23,14 @@ export default {
   components: {},
   data() {
     return {
-      name: 'FirstCard',
+      name: 'Third Card',
     };
   },
   computed: {
-    ...mapGetters(['angularDescription', 'isLoading']),
+    ...mapGetters(['reactDescription', 'isLoading']),
   },
   created() {
-    $Store.dispatch('getAngularDescription');
+    $Store.dispatch('getReactDescription');
   },
 };
 </script>
