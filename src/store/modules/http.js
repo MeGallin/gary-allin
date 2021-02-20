@@ -1,7 +1,9 @@
 import axios from 'axios';
 const state = {
   homeDescriptions: [],
-  angularDescriptions: [],
+  angularDescription: [],
+  vueDescription: [],
+  reactDescription: [],
   aboutDescriptions: [],
   myWorkDescriptions: [],
   cvDescriptions: [],
@@ -10,7 +12,9 @@ const state = {
 
 const getters = {
   homeDescriptions: state => state.homeDescriptions,
-  angularDescriptions: state => state.angularDescriptions,
+  angularDescription: state => state.angularDescription,
+  vueDescription: state => state.vueDescription,
+  reactDescription: state => state.reactDescription,
   aboutDescriptions: state => state.aboutDescriptions,
   myWorkDescriptions: state => state.myWorkDescriptions,
   cvDescriptions: state => state.cvDescriptions,
@@ -79,7 +83,7 @@ const actions = {
         console.error(error);
       });
   },
-  getAngularDescriptions(context) {
+  getAngularDescription(context) {
     context.commit('isLoading', true);
     const url = '../assets/Home/angularProject.json';
     axios
@@ -94,14 +98,50 @@ const actions = {
         console.error(error);
       });
   },
+  getVueDescription(context) {
+    context.commit('isLoading', true);
+    const url = '../assets/Home/vueProject.json';
+    axios
+      .get(url)
+      .then(res => {
+        setTimeout(() => {
+          context.commit('SET_RES_VUE_PROJECT', res.data);
+          context.commit('isLoading', false);
+        }, 1000);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  },
+  getReactDescription(context) {
+    context.commit('isLoading', true);
+    const url = '../assets/Home/reactProject.json';
+    axios
+      .get(url)
+      .then(res => {
+        setTimeout(() => {
+          context.commit('SET_RES_REACT_PROJECT', res.data);
+          context.commit('isLoading', false);
+        }, 1000);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  },
 };
 
 const mutations = {
   SET_RES_HOME(state, homeDescriptions) {
     state.homeDescriptions = homeDescriptions;
   },
-  SET_RES_ANGULAR_PROJECT(state, angularDescriptions) {
-    state.angularDescriptions = angularDescriptions;
+  SET_RES_ANGULAR_PROJECT(state, angularDescription) {
+    state.angularDescription = angularDescription;
+  },
+  SET_RES_VUE_PROJECT(state, vueDescription) {
+    state.vueDescription = vueDescription;
+  },
+  SET_RES_REACT_PROJECT(state, reactDescription) {
+    state.reactDescription = reactDescription;
   },
   SET_RES_ABOUT(state, aboutDescriptions) {
     state.aboutDescriptions = aboutDescriptions;

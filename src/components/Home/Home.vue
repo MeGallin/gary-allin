@@ -32,11 +32,11 @@
       </div>
 
       <div class="innerWrapper">
-        <FirstCard></FirstCard>
+        <SecondCard></SecondCard>
       </div>
 
       <div class="innerWrapper">
-        <FirstCard></FirstCard>
+        <ThirdCard></ThirdCard>
       </div>
     </div>
 
@@ -68,6 +68,8 @@ import $Store from '../../store/index';
 import TellMe from '../common/TellMe/TellMe';
 import { mapGetters } from 'vuex';
 import FirstCard from './FirstCard';
+import SecondCard from './SecondCard';
+import ThirdCard from './ThirdCard';
 
 export default {
   data() {
@@ -100,17 +102,14 @@ export default {
     Spinner,
     TellMe,
     FirstCard,
+    SecondCard,
+    ThirdCard,
   },
   computed: {
-    ...mapGetters([
-      'homeDescriptions',
-      'angularDescriptions',
-      'isLoading',
-    ]),
+    ...mapGetters(['homeDescriptions', 'isLoading']),
   },
   created() {
     $Store.dispatch('getDescriptions');
-    $Store.dispatch('getAngularDescriptions');
   },
 };
 </script>
