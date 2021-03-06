@@ -35,8 +35,8 @@ const actions = {
         method: 'GET',
         url: 'https://quotes15.p.rapidapi.com/quotes/random/',
         headers: {
-          'x-rapidapi-key': apiKey.rapidAPIKey,
-          'x-rapidapi-host': 'quotes15.p.rapidapi.com',
+          'x-rapidapi-key': apiKey.rapidApi.rapidAPIKey,
+          'x-rapidapi-host': apiKey.rapidApi.xRapidapiHost,
         },
       })
       .then(res => {
