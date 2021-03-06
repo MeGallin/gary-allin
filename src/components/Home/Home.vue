@@ -2,7 +2,6 @@
   <section id="home" ref="sectionDimensions">
     <div class="wrapper">
       <TellMe :characters="chareacters"></TellMe>
-      <log-in />
     </div>
 
     <!-- // Use this to get data with getters -->
@@ -30,37 +29,47 @@
     <div class="wrapper">
       <div class="innerWrapper">
         <FirstCard></FirstCard>
-      </div>
-
-      <div class="innerWrapper">
-        <SecondCard></SecondCard>
-      </div>
-
-      <div class="innerWrapper">
-        <ThirdCard></ThirdCard>
-      </div>
-    </div>
-    <div v-if="!isLoading" class="wrapper">
-      <div>
-        <div class="iconWrapper">
+        <div v-if="!isLoading" class="iconWrapper">
           <Images :images="images.AngularIcon" alt="AngularIcon" />
           <Images :images="images.RXJSIcon" alt="RXJSIcon" />
           <Images :images="images.PHPIcon" alt="PHPIcon" />
         </div>
       </div>
-      <div>
-        <div class="iconWrapper">
+
+      <div class="innerWrapper">
+        <SecondCard></SecondCard>
+        <div v-if="!isLoading" class="iconWrapper">
           <Images :images="images.VueIcon" alt="VueIcon" />
           <Images :images="images.PHPIcon" alt="PHPIcon" />
         </div>
       </div>
-      <div>
-        <div class="iconWrapper">
+
+      <div class="innerWrapper">
+        <ThirdCard></ThirdCard>
+        <div v-if="!isLoading" class="iconWrapper">
           <Images :images="images.ReactIcon" alt="ReactIcon" />
           <Images :images="images.ReduxIcon" alt="ReduxIcon" />
           <Images :images="images.PHPIcon" alt="PHPIcon" />
         </div>
       </div>
+    </div>
+
+    <div v-if="!isLoading" class="wrapper">
+      <modal v-cloak>
+        <span slot="button" @click="handleQutes">Random Quotes</span>
+        <h3 slot="header" class="underline">Random Quotes</h3>
+        <div slot="body">
+          <div v-if="quote" class="quotes">
+            <blockquote class="content">
+              "{{ quote }}"
+              <cite class="originator">
+                {{ originator }}
+              </cite>
+            </blockquote>
+          </div>
+        </div>
+        <div slot="footer"></div>
+      </modal>
     </div>
 
     <span
@@ -86,7 +95,6 @@
 
 <script>
 import Spinner from '../common/LoadingSpinner/LoadingSpinner';
-import LogIn from '../Authentication/LogIn/LogIn';
 import Images from '../common/Images/Images';
 import $Store from '../../store/index';
 import TellMe from '../common/TellMe/TellMe';
@@ -100,6 +108,7 @@ import PHPIcon from '../../../public/assets/Images/Icons/php-1.svg';
 import VueIcon from '../../../public/assets/Images/Icons/vue-js-1.svg';
 import ReactIcon from '../../../public/assets/Images/Icons/react-2.svg';
 import ReduxIcon from '../../../public/assets/Images/Icons/redux.svg';
+import Modal from '../common/Modal/Modal';
 
 export default {
   data() {
@@ -129,6 +138,11 @@ export default {
       sectionWidth: null,
     };
   },
+  methods: {
+    handleQutes: () => {
+      $Store.dispatch('getQuotes');
+    },
+  },
   mounted() {
     window.onresize = () => {
       this.sectionHeight = this.$refs.sectionDimensions.offsetHeight;
@@ -136,16 +150,21 @@ export default {
     };
   },
   components: {
-    LogIn,
     Spinner,
     TellMe,
     FirstCard,
     SecondCard,
     ThirdCard,
     Images,
+    Modal,
   },
   computed: {
-    ...mapGetters(['homeDescriptions', 'isLoading']),
+    ...mapGetters([
+      'homeDescriptions',
+      'isLoading',
+      'quote',
+      'originator',
+    ]),
   },
   created() {
     $Store.dispatch('getDescriptions');

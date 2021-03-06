@@ -1,5 +1,9 @@
 import axios from 'axios';
+import apiKey from '../../__env.json';
+
 const state = {
+  quote: '',
+  originator: '',
   homeDescriptions: [],
   angularDescription: [],
   vueDescription: [],
@@ -11,6 +15,8 @@ const state = {
 };
 
 const getters = {
+  quote: state => state.quote,
+  originator: state => state.originator,
   homeDescriptions: state => state.homeDescriptions,
   angularDescription: state => state.angularDescription,
   vueDescription: state => state.vueDescription,
@@ -22,6 +28,27 @@ const getters = {
 };
 
 const actions = {
+  getQuotes(context) {
+    context.commit('isLoading', true);
+    axios
+      .request({
+        method: 'GET',
+        url: 'https://quotes15.p.rapidapi.com/quotes/random/',
+        headers: {
+          'x-rapidapi-key': apiKey.rapidApi.rapidAPIKey,
+          'x-rapidapi-host': apiKey.rapidApi.xRapidapiHost,
+        },
+      })
+      .then(res => {
+        setTimeout(() => {
+          context.commit('SET_RES_QUOTES', res.data);
+          context.commit('isLoading', false);
+        }, 1000);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  },
   getDescriptions(context) {
     context.commit('isLoading', true);
     const url = '../assets/Home/home.json';
@@ -131,6 +158,10 @@ const actions = {
 };
 
 const mutations = {
+  SET_RES_QUOTES(state, quotes) {
+    state.quote = quotes.content;
+    state.originator = quotes.originator.name;
+  },
   SET_RES_HOME(state, homeDescriptions) {
     state.homeDescriptions = homeDescriptions;
   },
