@@ -8,10 +8,10 @@
 export default {
   data() {
     return {
-      disabled:false
-    }
+      disabled: false,
+    };
   },
-  props: {    
+  props: {
     onClick: {
       type: Function,
       required: false,
@@ -25,12 +25,12 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background-color: rgba(255, 255, 255, 0.4);
   color: rgba(255, 255, 255, 0.5);
-  margin: 0.5em 0.5em; 
+  margin: 0.5em 0.5em;
 }
 button.active {
   border: 1px solid var(--main-font-colour);
   background-color: black;
   color: var(--main-font-colour);
-  cursor: pointer;  
+  cursor: pointer;
 }
 </style>

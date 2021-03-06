@@ -117,7 +117,7 @@ section {
 p {
   line-height: 1.2;
   font-size: clamp(1.6rem, 1.25vh, 1.25rem);
-  font-size: max(1.2rem, 1.125vw);
+  font-size: max(1.6rem, 1.125vw);
   text-align: left;
   margin-bottom: 0.4rem;
 }
@@ -146,7 +146,34 @@ h3 {
   color: var(--light-orange);
 }
 /* Window resizing stuff */
-
+.iconWrapper {
+  padding: 0.4em;
+  display: flex;
+  align-items: center;
+}
+.quotes {
+  padding: 0.5em;
+  background-image: linear-gradient(
+    to right,
+    rgba(51, 51, 51, 0),
+    rgba(51, 51, 51, 0.5),
+    rgba(51, 51, 51, 1)
+  );
+  border-radius: 6px;
+}
+.quotes .content {
+  font-size: 1.2em;
+  text-align: center;
+  border-left: var(--burnt-orange) 6px solid;
+  padding-left: 0.5em;
+}
+.quotes .originator {
+  color: var(--burnt-orange);
+  margin-top: 1em;
+  font-size: 0.8em;
+  float: right;
+  font-weight: bold;
+}
 /* GA Helper classes */
 .border-temp {
   border: 2px solid var(--secondary-bg-colour);

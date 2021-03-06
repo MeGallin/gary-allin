@@ -3,7 +3,6 @@
     <div>
       <div class="wrapper">
         <TellMe :characters="characters"></TellMe>
-        <Images></Images>
       </div>
 
       <div class="wrapper">
@@ -44,7 +43,6 @@ import TellMe from '../common/TellMe/TellMe';
 import Modal from '../common/Modal/Modal';
 import { mapGetters } from 'vuex';
 import ContactForm from '../common/ContactForm/ContactForm';
-import Images from '../common/Images/Images';
 
 export default {
   data() {
@@ -68,7 +66,6 @@ export default {
     TellMe,
     Modal,
     ContactForm,
-    Images,
   },
   computed: {
     ...mapGetters(['aboutDescriptions', 'isLoading']),
