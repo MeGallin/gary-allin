@@ -33,6 +33,7 @@
           <Images :images="images.AngularIcon" alt="AngularIcon" />
           <Images :images="images.RXJSIcon" alt="RXJSIcon" />
           <Images :images="images.PHPIcon" alt="PHPIcon" />
+          <Images :images="images.MySQL" alt="MySQL" />
         </div>
       </div>
 
@@ -41,6 +42,7 @@
         <div v-if="!isLoading" class="iconWrapper">
           <Images :images="images.VueIcon" alt="VueIcon" />
           <Images :images="images.PHPIcon" alt="PHPIcon" />
+          <Images :images="images.Auth0" alt="Auth0" />
         </div>
       </div>
 
@@ -52,24 +54,6 @@
           <Images :images="images.PHPIcon" alt="PHPIcon" />
         </div>
       </div>
-    </div>
-
-    <div v-if="!isLoading" class="wrapper">
-      <modal v-cloak>
-        <span slot="button" @click="handleQutes">Random Quotes</span>
-        <h3 slot="header" class="underline">Random Quotes</h3>
-        <div slot="body">
-          <div v-if="quote" class="quotes">
-            <blockquote class="content">
-              "{{ quote }}"
-              <cite class="originator">
-                {{ originator }}
-              </cite>
-            </blockquote>
-          </div>
-        </div>
-        <div slot="footer"></div>
-      </modal>
     </div>
 
     <span
@@ -108,7 +92,8 @@ import PHPIcon from '../../../public/assets/Images/Icons/php-1.svg';
 import VueIcon from '../../../public/assets/Images/Icons/vue-js-1.svg';
 import ReactIcon from '../../../public/assets/Images/Icons/react-2.svg';
 import ReduxIcon from '../../../public/assets/Images/Icons/redux.svg';
-import Modal from '../common/Modal/Modal';
+import MySQL from '../../../public/assets/Images/Icons/mySql.svg';
+import Auth0 from '../../../public/assets/Images/Icons/auth0.svg';
 
 export default {
   data() {
@@ -131,6 +116,8 @@ export default {
         VueIcon: VueIcon,
         ReactIcon: ReactIcon,
         ReduxIcon: ReduxIcon,
+        MySQL: MySQL,
+        Auth0: Auth0,
       },
       sectionHeightWidthMessage:
         'Resize your window to see what happens.',
@@ -138,11 +125,7 @@ export default {
       sectionWidth: null,
     };
   },
-  methods: {
-    handleQutes: () => {
-      $Store.dispatch('getQuotes');
-    },
-  },
+
   mounted() {
     window.onresize = () => {
       this.sectionHeight = this.$refs.sectionDimensions.offsetHeight;
@@ -156,15 +139,9 @@ export default {
     SecondCard,
     ThirdCard,
     Images,
-    Modal,
   },
   computed: {
-    ...mapGetters([
-      'homeDescriptions',
-      'isLoading',
-      'quote',
-      'originator',
-    ]),
+    ...mapGetters(['homeDescriptions', 'isLoading']),
   },
   created() {
     $Store.dispatch('getDescriptions');

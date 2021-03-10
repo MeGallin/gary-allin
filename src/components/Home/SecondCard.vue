@@ -1,17 +1,17 @@
 <template>
   <div>
-    <div v-if="!isLoading">
-      <div
-        class="content-wrapper"
-        v-for="des in vueDescription"
-        :key="des.id"
-      >
-        <content-description
-          :title="des.title"
-          :description="des.description"
-        />
-      </div>
+    <div
+      class="content-wrapper"
+      v-for="des in vueDescription"
+      :key="des.id"
+    >
+      <content-description
+        :title="des.title"
+        :description="des.description"
+        :descriptionTwo="des.descriptionTwo"
+      />
     </div>
+    <p>{{ vueDescriptionLength }} words.</p>
   </div>
 </template>
 
@@ -27,7 +27,11 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['vueDescription', 'isLoading']),
+    ...mapGetters([
+      'vueDescription',
+      'isLoading',
+      'vueDescriptionLength',
+    ]),
   },
   created() {
     $Store.dispatch('getVueDescription');
@@ -36,7 +40,11 @@ export default {
 </script>
 <style scoped>
 .content-wrapper {
-  padding: 0.2em;
-  margin: 0 0.2em;
+  background-image: linear-gradient(
+    to right,
+    rgba(51, 51, 51, 1),
+    rgba(51, 51, 51, 0.1),
+    rgba(51, 51, 51, 0.1)
+  );
 }
 </style>

@@ -2,6 +2,9 @@ import axios from 'axios';
 import apiKey from '../../__env.json';
 
 const state = {
+  vueDescriptionLength: null,
+  angularDescriptionLength: null,
+  reactDescriptionLength: null,
   quote: '',
   originator: '',
   homeDescriptions: [],
@@ -15,6 +18,9 @@ const state = {
 };
 
 const getters = {
+  angularDescriptionLength: state => state.angularDescriptionLength,
+  vueDescriptionLength: state => state.vueDescriptionLength,
+  reactDescriptionLength: state => state.reactDescriptionLength,
   quote: state => state.quote,
   originator: state => state.originator,
   homeDescriptions: state => state.homeDescriptions,
@@ -116,6 +122,11 @@ const actions = {
     axios
       .get(url)
       .then(res => {
+        context.commit(
+          'SET_ANGULAR_DESCRIPTION_LENGTH',
+          res.data[1].description.split(' ').length +
+            res.data[1].descriptionTwo.split(' ').length,
+        );
         setTimeout(() => {
           context.commit('SET_RES_ANGULAR_PROJECT', res.data);
           context.commit('isLoading', false);
@@ -131,6 +142,11 @@ const actions = {
     axios
       .get(url)
       .then(res => {
+        context.commit(
+          'SET_VUE_DESCRIPTION_LENGTH',
+          res.data[1].description.split(' ').length +
+            res.data[1].descriptionTwo.split(' ').length,
+        );
         setTimeout(() => {
           context.commit('SET_RES_VUE_PROJECT', res.data);
           context.commit('isLoading', false);
@@ -146,6 +162,13 @@ const actions = {
     axios
       .get(url)
       .then(res => {
+        console.log(res.data[1]['description']);
+        // data(data["someProperty"]);
+        context.commit(
+          'SET_REACT_DESCRIPTION_LENGTH',
+          res.data[1]['description'].split(' ').length +
+            res.data[1]['descriptionTwo'].split(' ').length,
+        );
         setTimeout(() => {
           context.commit('SET_RES_REACT_PROJECT', res.data);
           context.commit('isLoading', false);
@@ -158,6 +181,15 @@ const actions = {
 };
 
 const mutations = {
+  SET_REACT_DESCRIPTION_LENGTH(state, reactDescriptionLength) {
+    state.reactDescriptionLength = reactDescriptionLength;
+  },
+  SET_ANGULAR_DESCRIPTION_LENGTH(state, angularDescriptionLength) {
+    state.angularDescriptionLength = angularDescriptionLength;
+  },
+  SET_VUE_DESCRIPTION_LENGTH(state, vueDescriptionLength) {
+    state.vueDescriptionLength = vueDescriptionLength;
+  },
   SET_RES_QUOTES(state, quotes) {
     state.quote = quotes.content;
     state.originator = quotes.originator.name;

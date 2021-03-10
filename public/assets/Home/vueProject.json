@@ -2,11 +2,14 @@
   {
     "id": 1,
     "title": "VUE Project",
-    "description": ""
+    "description": "",
+    "url": ""
   },
   {
     "id": 2,
-    "title": "Gary Allin",
-    "description": "Built using the Vue JS liberry . This consist..."
+    "title": "This site",
+    "description": "Built using the Vue JS library and VEUX to handle state management. There are few feature that are worth mentioning.",
+    "descriptionTwo": "Lets start with the layout. There is NO CSS framework. I used flex display to get the responsiveness. I also made use of CSS variables to define common use cases. Using VueJS allowed me create re-usable components like the modal which I use for my contact form and random quotes. The buttons are also a component that accepts props to give you flexibility to re-use then as you wish. I did a similar thing with the images by creating an image component which accepted different images as props. I use VUEX to handle the state which takes care of all my HTTP requests, loading animation.",
+    "url": ""
   }
 ]

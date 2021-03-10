@@ -1,1 +1,7 @@
-
+.contentWrapper a {
+  color: var(--border-colour);
+}
+.contentWrapper div {
+  /* padding: 0 0.4em;
+  border-left: 2px solid var(--burnt-orange); */
+}

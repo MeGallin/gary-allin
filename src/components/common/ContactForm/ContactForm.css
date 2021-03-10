@@ -1,6 +1,5 @@
 form {
   color: var(--main-font-colour);
-  border: 1px solid var(--main-font-colour);
   width: 100%;
   padding: 10px 20px;
 }

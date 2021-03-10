@@ -1,5 +1,5 @@
 <template>
-  <content-wrapper>
+  <content-wrapper class="contentWrapper">
     <template v-slot:header>
       <h3 class="underline">{{ title }}</h3>
     </template>
@@ -11,6 +11,9 @@
         <p>{{ descriptionFour }}</p>
         <p>{{ descriptionFive }}</p>
         <p>{{ descriptionSix }}</p>
+        <p>
+          <a :href="url" target="_blank">{{ url }}</a>
+        </p>
       </div>
     </template>
   </content-wrapper>
@@ -33,6 +36,7 @@ export default {
     'descriptionFour',
     'descriptionFive',
     'descriptionSix',
+    'url',
   ],
 };
 </script>

@@ -1,87 +1,97 @@
 <template>
-  <div class="form-style">
-    <form id="contactForm">
-      <div>
-        <label>* Name</label>
-        <span class="error" v-if="nameValitation === 'Invalid'">
-          Name is a required field
-        </span>
-        <input
-          type="text"
-          ref="name"
-          name="name"
-          :class="
-            nameValitation === 'Invalid' ||
-            nameValitation === 'Pending'
-              ? 'invalid'
-              : 'entered'
-          "
-          @blur="validateNameInput"
-          v-model.trim="posts.name"
-        />
-      </div>
-      <div>
-        <label>* Email Address</label>
-        <span class="error" v-if="emailValidation === 'Invalid'">
-          Email is a required field and needs to contain a valid email
-          address.
-        </span>
-        <input
-          type="email"
-          ref="email"
-          name="email"
-          v-model.trim="posts.email"
-          @blur="validateEmailInput"
-          :class="
-            emailValidation === 'Invalid' ||
-            emailValidation === 'Pending'
-              ? 'invalid'
-              : 'entered'
-          "
-        />
-      </div>
-      <div>
-        <label>* Message</label>
-        <span class="error" v-if="messageValidation === 'Invalid'">
-          Message field is required.
-        </span>
-        <textarea
-          name="message"
-          ref="message"
-          v-model.trim="posts.message"
-          @blur="validateMessageInput"
-          :class="
-            messageValidation === 'Invalid' ||
-            messageValidation === 'Pending'
-              ? 'invalid'
-              : 'entered'
-          "
-        ></textarea>
-      </div>
+  <div>
+    <fieldset>
+      <legend><TellMe :characters="characters"></TellMe></legend>
 
-      <div class="messageWRapper">    
-        <div class="thankYou">{{ thankYouMessage }}</div>
-      </div>
-    </form>
-    <Button
-      type="submit"
-      :disabled="isDisabled"
-      :class="{ active: !isDisabled }"
-      :onClick="handleContactFormSubmit"
-      >SUBMIT</Button
-    >
-    <span class="windowSize" v-if="!textAreaHeight || !textAreaWidth">
-      {{textAreaHeightWidthMessage}}
-    </span>
-    <span v-else>
-      <span       
-      title="Resize you window"
-      class="windowSize" 
-      :class="textAreaWidth > 650 ? 'windowSizeYellow':'windowSizeRed' " v-if="textAreaHeight || textAreaWidth">
-      {{ textAreaHeight }}x{{textAreaWidth}}
+      <form id="contactForm" class="form-style">
+        <div>
+          <label>* Name</label>
+          <span class="error" v-if="nameValitation === 'Invalid'">
+            Name is a required field
+          </span>
+          <input
+            type="text"
+            ref="name"
+            name="name"
+            :class="
+              nameValitation === 'Invalid' ||
+              nameValitation === 'Pending'
+                ? 'invalid'
+                : 'entered'
+            "
+            @blur="validateNameInput"
+            v-model.trim="posts.name"
+          />
+        </div>
+        <div>
+          <label>* Email Address</label>
+          <span class="error" v-if="emailValidation === 'Invalid'">
+            Email is a required field and needs to contain a valid
+            email address.
+          </span>
+          <input
+            type="email"
+            ref="email"
+            name="email"
+            v-model.trim="posts.email"
+            @blur="validateEmailInput"
+            :class="
+              emailValidation === 'Invalid' ||
+              emailValidation === 'Pending'
+                ? 'invalid'
+                : 'entered'
+            "
+          />
+        </div>
+        <div>
+          <label>* Message</label>
+          <span class="error" v-if="messageValidation === 'Invalid'">
+            Message field is required.
+          </span>
+          <textarea
+            name="message"
+            ref="message"
+            v-model.trim="posts.message"
+            @blur="validateMessageInput"
+            :class="
+              messageValidation === 'Invalid' ||
+              messageValidation === 'Pending'
+                ? 'invalid'
+                : 'entered'
+            "
+          ></textarea>
+        </div>
+
+        <div class="messageWRapper">
+          <div class="thankYou">{{ thankYouMessage }}</div>
+        </div>
+      </form>
+      <Button
+        type="submit"
+        :disabled="isDisabled"
+        :class="{ active: !isDisabled }"
+        :onClick="handleContactFormSubmit"
+        >SUBMIT</Button
+      >
+      <span
+        class="windowSize"
+        v-if="!textAreaHeight || !textAreaWidth"
+      >
+        {{ textAreaHeightWidthMessage }}
       </span>
-    </span>
-    
+      <span v-else>
+        <span
+          title="Resize you window"
+          class="windowSize"
+          :class="
+            textAreaWidth > 650 ? 'windowSizeYellow' : 'windowSizeRed'
+          "
+          v-if="textAreaHeight || textAreaWidth"
+        >
+          {{ textAreaHeight }}x{{ textAreaWidth }}
+        </span>
+      </span>
+    </fieldset>
   </div>
 </template>
 
@@ -90,6 +100,7 @@ import { postContactForm } from '../../../api';
 import $Store from '../../../store/index';
 import { mapActions } from 'vuex';
 import Button from '../Button/Button';
+import TellMe from '../../common/TellMe/TellMe';
 
 export default {
   data() {
@@ -107,13 +118,23 @@ export default {
       textAreaHeightWidthMessage: 'Resize your window to see what happens.',
       textAreaHeight: null,
       textAreaWidth: null,
+       characters: {
+        char1: 'M',
+        char2: 'a',
+        char3: 'i',
+        char4: 'L',
+        char5: ' ',
+        char6: 'M',
+        char7: 'e',
+      },
     };
   },
   components: {
     Button,
+    TellMe
   },
   watch: {
-    'posts.name': function(newVal) { 
+    'posts.name': function(newVal) {
       if(newVal.length >= 3) {
         this.validateNameInput();
       }
@@ -183,7 +204,7 @@ export default {
       }
     },
   },
-  computed: {    
+  computed: {
     isDisabled() {
       return (
         !this.posts.name || !this.posts.email || !this.posts.message
@@ -195,9 +216,9 @@ export default {
     },
   },
    mounted() {
-    window.onresize = () => {    
-        this.textAreaHeight = this.$refs.message.offsetHeight;
-        this.textAreaWidth = this.$refs.message.offsetWidth;        
+    window.onresize = () => {
+      this.textAreaHeight =  this.$refs.message.offsetHeight ? this.$refs.message.offsetHeight : null;
+      this.textAreaWidth = this.$refs.message.offsetWidth ? this.$refs.message.offsetWidth : null;
     }
   },
 };
