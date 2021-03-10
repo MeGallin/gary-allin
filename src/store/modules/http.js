@@ -122,11 +122,20 @@ const actions = {
     axios
       .get(url)
       .then(res => {
-        context.commit(
-          'SET_ANGULAR_DESCRIPTION_LENGTH',
-          res.data[1].description.split(' ').length +
-            res.data[1].descriptionTwo.split(' ').length,
-        );
+        for (const key in res.data[1]) {
+          if (
+            key === 'description' ||
+            key === 'descriptionTwo' ||
+            key === 'descriptionThree'
+          ) {
+            context.commit(
+              'SET_ANGULAR_DESCRIPTION_LENGTH',
+              res.data[1][key].split(' ').length +
+                res.data[1][key].split(' ').length,
+            );
+          }
+        }
+
         setTimeout(() => {
           context.commit('SET_RES_ANGULAR_PROJECT', res.data);
           context.commit('isLoading', false);
@@ -142,11 +151,20 @@ const actions = {
     axios
       .get(url)
       .then(res => {
-        context.commit(
-          'SET_VUE_DESCRIPTION_LENGTH',
-          res.data[1].description.split(' ').length +
-            res.data[1].descriptionTwo.split(' ').length,
-        );
+        for (const key in res.data[1]) {
+          if (
+            key === 'description' ||
+            key === 'descriptionTwo' ||
+            key === 'descriptionThree'
+          ) {
+            context.commit(
+              'SET_VUE_DESCRIPTION_LENGTH',
+              res.data[1][key].split(' ').length +
+                res.data[1][key].split(' ').length,
+            );
+          }
+        }
+
         setTimeout(() => {
           context.commit('SET_RES_VUE_PROJECT', res.data);
           context.commit('isLoading', false);
@@ -162,13 +180,20 @@ const actions = {
     axios
       .get(url)
       .then(res => {
-        console.log(res.data[1]['description']);
-        // data(data["someProperty"]);
-        context.commit(
-          'SET_REACT_DESCRIPTION_LENGTH',
-          res.data[1]['description'].split(' ').length +
-            res.data[1]['descriptionTwo'].split(' ').length,
-        );
+        for (const key in res.data[1]) {
+          if (
+            key === 'description' ||
+            key === 'descriptionTwo' ||
+            key === 'descriptionThree'
+          ) {
+            context.commit(
+              'SET_REACT_DESCRIPTION_LENGTH',
+              res.data[1][key].split(' ').length +
+                res.data[1][key].split(' ').length,
+            );
+          }
+        }
+
         setTimeout(() => {
           context.commit('SET_RES_REACT_PROJECT', res.data);
           context.commit('isLoading', false);
