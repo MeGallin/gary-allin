@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="!isLoading">
     <div
       class="content-wrapper"
       v-for="des in vueDescription"

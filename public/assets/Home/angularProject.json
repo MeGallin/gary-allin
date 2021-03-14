@@ -8,8 +8,9 @@
   {
     "id": 2,
     "title": "Your Corporate Memory",
-    "description": "Built using the Angular(9) framework for the front-end and PHP for the backend end points.",
+    "description": "Built using the a Angular(9) framework for the front-end and PHP for the backend end personal persona onalpe rso nal personal",
     "descriptionTwo": "This is application that can be used to store information about your company or personal",
+    "descriptionThree": "This is application that can be used to store information about your company or personal",
     "url": "https://www.yourcorporatememory.com"
   }
 ]

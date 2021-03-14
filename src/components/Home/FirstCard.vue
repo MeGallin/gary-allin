@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="!isLoading">
     <div
       class="content-wrapper"
       v-for="des in angularDescription"
@@ -9,6 +9,7 @@
         :title="des.title"
         :description="des.description"
         :descriptionTwo="des.descriptionTwo"
+        :descriptionThree="des.descriptionThree"
         :url="des.url"
       />
     </div>

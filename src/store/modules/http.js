@@ -122,19 +122,12 @@ const actions = {
     axios
       .get(url)
       .then(res => {
-        for (const key in res.data[1]) {
-          if (
-            key === 'description' ||
-            key === 'descriptionTwo' ||
-            key === 'descriptionThree'
-          ) {
-            context.commit(
-              'SET_ANGULAR_DESCRIPTION_LENGTH',
-              res.data[1][key].split(' ').length +
-                res.data[1][key].split(' ').length,
-            );
-          }
-        }
+        const count =
+          res.data[1]['description'].split(' ').length +
+          res.data[1]['descriptionTwo'].split(' ').length +
+          res.data[1]['descriptionThree'].split(' ').length;
+
+        context.commit('SET_ANGULAR_DESCRIPTION_LENGTH', count);
 
         setTimeout(() => {
           context.commit('SET_RES_ANGULAR_PROJECT', res.data);
@@ -151,19 +144,11 @@ const actions = {
     axios
       .get(url)
       .then(res => {
-        for (const key in res.data[1]) {
-          if (
-            key === 'description' ||
-            key === 'descriptionTwo' ||
-            key === 'descriptionThree'
-          ) {
-            context.commit(
-              'SET_VUE_DESCRIPTION_LENGTH',
-              res.data[1][key].split(' ').length +
-                res.data[1][key].split(' ').length,
-            );
-          }
-        }
+        const count =
+          res.data[1]['description'].split(' ').length +
+          res.data[1]['descriptionTwo'].split(' ').length;
+
+        context.commit('SET_VUE_DESCRIPTION_LENGTH', count);
 
         setTimeout(() => {
           context.commit('SET_RES_VUE_PROJECT', res.data);
@@ -180,19 +165,11 @@ const actions = {
     axios
       .get(url)
       .then(res => {
-        for (const key in res.data[1]) {
-          if (
-            key === 'description' ||
-            key === 'descriptionTwo' ||
-            key === 'descriptionThree'
-          ) {
-            context.commit(
-              'SET_REACT_DESCRIPTION_LENGTH',
-              res.data[1][key].split(' ').length +
-                res.data[1][key].split(' ').length,
-            );
-          }
-        }
+        const count =
+          res.data[1]['description'].split(' ').length +
+          res.data[1]['descriptionTwo'].split(' ').length;
+
+        context.commit('SET_REACT_DESCRIPTION_LENGTH', count);
 
         setTimeout(() => {
           context.commit('SET_RES_REACT_PROJECT', res.data);
